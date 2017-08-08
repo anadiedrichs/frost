@@ -1,0 +1,13 @@
+Package: frost
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+    1- día 8 de agosto 2017 cree el proyecto en R para el frost package pero... ¿qué funciones debería ofrecer este paquete? 
+    ¿por qué estaría un agrónomo interesado a utilizarlo?
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
