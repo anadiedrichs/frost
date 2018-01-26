@@ -1,17 +1,11 @@
 Package: frost
 Type: Package
-Title: Prediction of minimum temperature for frost prediction in agriculture. 
+Title: Prediction of minimum temperature for frost prediction in agriculture.
 Version: 0.0.1
 Author: Ana Laura Diedrichs
 Maintainer: Ana Laura Diedrichs <ana.diedrichs@frm.utn.edu.ar>
-Description: 
-Paquete que contiene métodos o funciones para predecir la temperatura mínima en 
-base a variables como temperatura ambiental, punto de rocío, humedad, que pueden obtener
-los farmers and agronomic engineer from in-field meteorological stations.
-    1- día 8 de agosto 2017 cree el proyecto en R para el frost package pero... 
-    ¿qué funciones debería ofrecer este paquete? 
-    ¿por qué estaría un agrónomo interesado a utilizarlo?
-License: TODO MIT o GPL 
+Description: Paquete que contiene metodos o funciones para predecir la temperatura minima en base a variables como temperatura ambiental, punto de rocio, humedad, que pueden obtener los farmers and agronomic engineer from in-field meteorological stations. start at 08/08/2017
+License: TODO MIT o GPL
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
