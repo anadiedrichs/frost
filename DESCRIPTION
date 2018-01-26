@@ -1,14 +1,17 @@
 Package: frost
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Prediction of minimum temperature for frost prediction in agriculture. 
 Version: 0.0.1
 Author: Ana Laura Diedrichs
 Maintainer: Ana Laura Diedrichs <ana.diedrichs@frm.utn.edu.ar>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-    1- día 8 de agosto 2017 cree el proyecto en R para el frost package pero... ¿qué funciones debería ofrecer este paquete? 
+Description: 
+Paquete que contiene métodos o funciones para predecir la temperatura mínima en 
+base a variables como temperatura ambiental, punto de rocío, humedad, que pueden obtener
+los farmers and agronomic engineer from in-field meteorological stations.
+    1- día 8 de agosto 2017 cree el proyecto en R para el frost package pero... 
+    ¿qué funciones debería ofrecer este paquete? 
     ¿por qué estaría un agrónomo interesado a utilizarlo?
-License: What license is it under?
+License: TODO MIT o GPL 
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
