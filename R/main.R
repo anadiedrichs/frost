@@ -19,22 +19,37 @@
 #' @export
 #' @examples
 #' x1 <- rnorm(100,mean=2,sd=5)
-#' x2 <- rnorm(100,mean=2,sd=5)
+#' x2 <- rnorm(100,mean=1,sd=3)
 #' y <- rnorm(100,mean=0,sd=2)
-#' predFAO(x1,x2,y)
+#' predFAO(dw = x2,temp=x1,tmin=y)
 
 predFAO <- function(dw,temp,tmin)
 {
-  # TODO chequear valores validos en temp, tmin, dw
-  # chequear que tienen la misma longitud los arrays
+  a = 0; b = 0; c= 0
   # chequear que no haya valores nulos
 
   if(checkTemp(dw) && checkTemp(temp) && checkTemp(tmin)
      && checkLenght(dw,tmin) && checkLenght(temp,tmin))
   {
-    data = as.data.frame(y = tmin, x1 = temp, x2= dw)
-    fit <- lm(y ~ x1 + x2 , data=data)
-    return(c = coefficients(fit), fit = fit)
+    # primera formula
+    data = as.data.frame(cbind(y = tmin, x1 = temp, x2= dw))
+    fit1 <- lm(y~x1, data=data)
+    a <- fit1$coefficients[[2]]
+    w <-  fit1$coefficients[[1]]
+    #Tp prima = a t_0 + b
+    tp_1 <- a * temp + w
+    residual1 <- tmin - tp_1
+    # segunda formula
+    fit2 <- lm(dw ~ residual1 , data=as.data.frame(cbind(dw = dw, residual1 = residual1)))
+    b <- fit2$coefficients[[2]]
+    c <- w + fit2$coefficients[[1]]
+
+    # analisis de la prediccion
+    Tp <- a * temp + b * dw + c
+    Rp <- tmin - Tp
+    r2 <- (var(tmin)-(var(tmin)-var(Tp))) / var(tmin)
+    return(list(a = a, b= b, c= c, Tp = Tp, Rp = Rp, r2 = r2))
+
   }else(return(NULL))
 #https://www.statmethods.net/stats/regression.html
 }
@@ -45,7 +60,7 @@ predFAO <- function(dw,temp,tmin)
 #' @param t2 temperature 2 hours after sunset
 #' @param n how many hours for sunrise
 #' @param i value which must be i < n, i hours value after sunset
-#' @return
+#' @return An R basic scatter/line plot
 #' @export
 #' @examples
 #'
