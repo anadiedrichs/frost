@@ -1,6 +1,6 @@
 Package: frost
 Type: Package
-Title: Prediction of minimum temperature for frost prediction in agriculture
+Title: Prediction of minimum temperature for frost forecasting in agriculture
 Version: 0.0.1
 Author: Ana Laura Diedrichs
 Maintainer: Ana Laura Diedrichs <ana.diedrichs@frm.utn.edu.ar>
