@@ -1,1 +1,6 @@
-exportPattern("^[[:alpha:]]+")
+#exportPattern("^[[:alpha:]]+")
+export(predFAO,predTrend)
+export(predTrend)
+export(calcDewPoint)
+importFrom("graphics", "plot")
+importFrom("stats", "lm", "var")
