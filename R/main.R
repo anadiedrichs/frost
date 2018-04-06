@@ -1,5 +1,3 @@
-#TODO requires or import packages
-
 
 #'
 #' Predict the minimum temperature using the recommended FAO equation
@@ -7,15 +5,15 @@
 #' Predict the minimum temperature using the recommended FAO equation, which can be applied to
 #' nights with radiative frost (wind less than 2 m/s^2, no clouds, no rain).
 #' For more details please check: TODO
-#' This method is a multiple linear regression of the following form:
-#' Tmim = a * temp + b * dw + i
+#'
+#' Tmim = a * temp + b * dw + c
 #' where *temp*  and *dw* are the temperature and dew point respectively (chequear spelling)
 #' two hours after sunset
 #' This function resolve the equation and find the coefficients
-#' @param temp: [°C] an array of ambient temperature, two hours after sunset.
-#' @param dw: [°C] an array of dew points, two hours after sunset.
-#' @param tmin: [°C] minimum temperature
-#' @return a, b, and i values
+#' @param temp [°C]: an array of ambient temperature, two hours after sunset.
+#' @param dw [°C]: an array of dew points, two hours after sunset.
+#' @param tmin [°C]: minimum temperature
+#' @return a, b, and c values
 #' @export
 #' @examples
 #' x1 <- rnorm(100,mean=2,sd=5)
@@ -54,8 +52,9 @@ predFAO <- function(dw,temp,tmin)
 #https://www.statmethods.net/stats/regression.html
 }
 
-#' Predict the trend of the temperature during a frost nigth
-#' @param temp Temperature in °C, 2 hours after sunset
+#' Predict the trend of the temperature during a frost nigth.
+#' This equation has been taken
+#' from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
 #' @param Tmin predicted minimum temperature
 #' @param t2 temperature 2 hours after sunset
 #' @param n how many hours for sunrise
@@ -63,8 +62,8 @@ predFAO <- function(dw,temp,tmin)
 #' @return An R basic scatter/line plot
 #' @export
 #' @examples
-#'
-# from uc davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
+#' print("ACA VA UN EJEMPLO")
+#
 predTrend <- function(Tmin, t2, i, n)
 {
   b = ((Tmin - t2)/sqrt(n - 2))
