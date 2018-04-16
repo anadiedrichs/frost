@@ -52,37 +52,41 @@ predFAO <- function(dw,temp,tmin)
 #https://www.statmethods.net/stats/regression.html
 }
 
+
+# predTrend <- function(Tmin, t2, i, n)
+# {
+#   b = ((Tmin - t2)/sqrt(n - 2))
+#   ti = t2 + b * sqrt(i-2)
+#   return(ti)
+# }
 #' Predict the trend of the temperature during a frost nigth.
 #' This equation has been taken
 #' from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
 #' @param Tmin predicted minimum temperature
 #' @param t2 temperature 2 hours after sunset
-#' @param n how many hours for sunrise
-#' @param i value which must be i < n, i hours value after sunset
-#' @return An R basic scatter/line plot
+#' @param n how many hours between sunset and sunrise
+#' @return A vector with the n-2 values of estimated temperatures
 #' @export
 #' @examples
-#' print("ACA VA UN EJEMPLO")
+#' plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
+#' plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
 #
-predTrend <- function(Tmin, t2, i, n)
-{
-  b = ((Tmin - t2)/sqrt(n - 2))
-  ti = t2 + b * sqrt(i-2)
-  return(ti)
-}
-
-#TODO doc
-#TODO improve plot
 plotTrend <- function(Tmin, t2, n)
 {
-  v <- c(3:n)
+  #TODO check Tmin << a t2
+  #TODO check n sea mayor a 2
+  v <- vector(mode = "numeric",length = n-2)
+  b = ((Tmin - t2)/sqrt(n - 2))
 
-  for(i in 1:(n-2)){
-    v[i] <- predTrend(Tmin,t2,i,n)
+  for(i in 3:n)
+  {
+    ti = t2 + b * sqrt(i-2)
+    v[i-2] <- ti
   }
-  print(length(v))
-  print(length(seq(3,n,1)))
+  #print(length(v))
+  #print(length(seq(3,n,1)))
   plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature trend")
+  return(v)
 }
 
 
