@@ -21,11 +21,11 @@ checkLenght <- function(a,b)
 
 
 ###############################################################################33
-#' DEW POINT estimation given relative humidity and temperature
-#'
-#' Mode "A" : calls calc1 function
-#' Mode "B" : calls calc2 function
-#' Mode "C":  calls calc3 function
+#' @title DEW POINT estimation given relative humidity and temperature
+#' @description
+#' Mode "A" : calls calcDewPoint.A function
+#' Mode "B" : calls calcDewPoint.B function
+#' Mode "C":  calls calcDewPoint.C function
 #'
 #' @param temp [°C] an integer or double value between -20 and 60 °C.
 #' @param RH [in percentage] an integer or double value between 0 and 100.
@@ -39,49 +39,66 @@ calcDewPoint <- function(RH,temp,mode = "A")
   if(checkRH(RH) && checkTemp(temp) && mode %in% c("A","B","C"))
   {
 
-    if(mode =="A") return(calc1(RH,temp))
-    else if(mode == "B")return(calc2(RH,temp))
-    else if(mode =="C") return(calc3(RH,temp))
+    if(mode =="A") return(calcDewPoint.A(RH,temp))
+    else if(mode == "B")return(calcDewPoint.B(RH,temp))
+    else if(mode =="C") return(calcDewPoint.C(RH,temp))
 
   }else return(NULL)
 }
 
-#' wikipedia formula https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo
-#' RH relative humidity in % (values from 0 to 100)
-#' temp temperature in °C
-#' @param temp [°C] an integer or double value between -20 and 60 °C
-#' @param RH [in percentage] an integer or double value between 0 and 100.
+#' @title  Calculates dew point from ambient temperature and relative humidity.
+#'
+#' @description
+#' The following formula is used for dew point estimation:
+#' $$ (RH/100 )^(1/8) * (110+temp) -110) $$
+#' ,where RH is relative humidity and temp is ambient temperature.
+#' The formula was taken from this wikipedia page:
+#' https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo
+#'
+#' @param temp [°C] environmental temperature, an integer or double value between -20 and 60 °C
+#' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)
 #' @export
-calc1 <- function(RH,temp) {return((RH/100 )^(1/8) * (110+temp) -110)}
+#' @example
+#' temp <- 25
+#' rh <- 54
+#' calcDewPoint.A(rh,temp)
+calcDewPoint.A <- function(RH,temp) {return((RH/100 )^(1/8) * (110+temp) -110)}
 
-#' Mark G. Lawrence approach
-#' https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225
-#' The Relationship between Relative Humidity and the Dewpoint Temperature in Moist Air:
-#' A Simple Conversion and Applications
-#' https://doi.org/10.1175/BAMS-86-2-225
-#' @param temp [°C] an integer or double value between -20 and 60 °C
-#' @param RH [in percentage] an integer or double value between 0 and 100.
+#' @title Calculates dew point from ambient temperature and relative humidity.
+#' @description
+#' Calculation of dew point using the Mark G. Lawrence approach given in the following paper:
+#' * "The Relationship between Relative Humidity and the Dewpoint Temperature in Moist Air:
+#' A Simple Conversion and Applications", DOI: https://doi.org/10.1175/BAMS-86-2-225 ,
+#' URL: https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225
+#' @param temp [°C] environmental temperature, an integer or double value between -20 and 60 °C
+#' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)
 #' @export
-
-calc2 <- function(RH,temp) {
+#' @example
+#' temp <- 25
+#' rh <- 54
+#' calcDewPoint.B(rh,temp)
+calcDewPoint.B <- function(RH,temp) {
   dw <- 0
   if(RH < 50){ dw <- (0.198 + 0.0017*temp) * RH + (0.84*temp) - 19.2}
   else{ dw <- temp - ( ((100-RH)/5) * (temp/300)^2 ) - (0.00135 * (RH - 84)^2 )+ 0.35}
   return(dw)
 }
-
-#
-#' Alduchov and Eskridge (1996)
-#' paper: Alduchov, O. A., and R. E. Eskridge, 1996:
+#' @title Calculates dew point from ambient temperature and relative humidity.
+#' @description
+#' Calculation of dew point using the approach given in the following paper:
+#' Alduchov and Eskridge (1996),
 #' Improved Magnus' form approximation of saturation vapor pressure. J. Appl. Meteor., 35, 601–609.
-#' @param temp [°C] an integer or double value between -20 and 60 °C
-#' @param RH [in percentage] an integer or double value between 0 and 100.
+#' @param temp [°C] environmental temperature, an integer or double value between -20 and 60 °C
+#' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)
 #' @export
-
-calc3 <- function(RH,temp){
+#' @example
+#' temp <- 25
+#' rh <- 54
+#' calcDewPoint.C(rh,temp)
+calcDewPoint.C <- function(RH,temp){
   return (243.04*(log(RH/100)+((17.625*temp)/(243.04+temp)))/(17.625-log(RH/100)-((17.625*temp)/(243.04+temp))))
 }
 ######################################################################################
