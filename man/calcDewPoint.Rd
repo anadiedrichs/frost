@@ -17,7 +17,7 @@ calcDewPoint(RH, temp, mode = "A")
 dew point value (double)
 }
 \description{
-Mode "A" : calls calc1 function
-Mode "B" : calls calc2 function
-Mode "C":  calls calc3 function
+Mode "A" : calls calcDewPoint.A function
+Mode "B" : calls calcDewPoint.B function
+Mode "C":  calls calcDewPoint.C function
 }
