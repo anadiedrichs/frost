@@ -2,5 +2,7 @@
 export(predFAO)
 export(plotTrend)
 export(calcDewPoint)
+export(predMzaCalculateEquation)
+export(predMza)
 importFrom("graphics", "plot")
 importFrom("stats", "lm", "var")
