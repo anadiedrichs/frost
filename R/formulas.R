@@ -21,30 +21,6 @@ checkLenght <- function(a,b)
 
 
 ###############################################################################33
-#' @title DEW POINT estimation given relative humidity and temperature
-#' @description
-#' Mode "A" : calls calcDewPoint.A function
-#' Mode "B" : calls calcDewPoint.B function
-#' Mode "C":  calls calcDewPoint.C function
-#'
-#' @param temp [°C] an integer or double value between -20 and 60 °C.
-#' @param RH [in percentage] an integer or double value between 0 and 100.
-#' @param mode string values "A", "B" or "C". Default "A".
-#' @return dew point value (double)
-#' @export
-#' @examples
-
-calcDewPoint <- function(RH,temp,mode = "A")
-{
-  if(checkRH(RH) && checkTemp(temp) && mode %in% c("A","B","C"))
-  {
-
-    if(mode =="A") return(calcDewPoint.A(RH,temp))
-    else if(mode == "B")return(calcDewPoint.B(RH,temp))
-    else if(mode =="C") return(calcDewPoint.C(RH,temp))
-
-  }else return(NULL)
-}
 
 #' @title  Calculates dew point from ambient temperature and relative humidity.
 #'
@@ -101,5 +77,35 @@ calcDewPoint.B <- function(RH,temp) {
 calcDewPoint.C <- function(RH,temp){
   return (243.04*(log(RH/100)+((17.625*temp)/(243.04+temp)))/(17.625-log(RH/100)-((17.625*temp)/(243.04+temp))))
 }
+#' @title Dew point estimation given relative humidity and temperature
+#' @description
+#' This function is a wrapper to access to one of the dew point calculation methods
+#' offered in this package.
+#' Read more about the method in calcDewPoint.A, calcDewPoint.B,calcDewPoint.C functions.
+#' @param temp [°C] an integer or double value between -20 and 60 °C.
+#' @param RH [in percentage] an integer or double value between 0 and 100.
+#' @param mode string values "A", "B" or "C". Default "A".
+#' * Mode "A" : calls calcDewPoint.A function
+#' * Mode "B" : calls calcDewPoint.B function
+#' * Mode "C":  calls calcDewPoint.C function
+#' @return dew point value (double)
+#' @export
+#' @examples
+#' temp <- 25
+#' rh <- 54
+#' calcDewPoint(rh,temp) # it takes mode = "A" by default
+#' calcDewPoint(rh,temp,mode="B")
+calcDewPoint <- function(RH,temp,mode = "A")
+{
+  if(checkRH(RH) && checkTemp(temp) && mode %in% c("A","B","C"))
+  {
+
+    if(mode =="A") return(calcDewPoint.A(RH,temp))
+    else if(mode == "B")return(calcDewPoint.B(RH,temp))
+    else if(mode =="C") return(calcDewPoint.C(RH,temp))
+
+  }else return(NULL)
+}
+
 ######################################################################################
 

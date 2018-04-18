@@ -2,7 +2,7 @@
 % Please edit documentation in R/formulas.R
 \name{calcDewPoint}
 \alias{calcDewPoint}
-\title{DEW POINT estimation given relative humidity and temperature}
+\title{Dew point estimation given relative humidity and temperature}
 \usage{
 calcDewPoint(RH, temp, mode = "A")
 }
@@ -11,13 +11,22 @@ calcDewPoint(RH, temp, mode = "A")
 
 \item{temp}{[°C] an integer or double value between -20 and 60 °C.}
 
-\item{mode}{string values "A", "B" or "C". Default "A".}
+\item{mode}{string values "A", "B" or "C". Default "A".
+* Mode "A" : calls calcDewPoint.A function
+* Mode "B" : calls calcDewPoint.B function
+* Mode "C":  calls calcDewPoint.C function}
 }
 \value{
 dew point value (double)
 }
 \description{
-Mode "A" : calls calcDewPoint.A function
-Mode "B" : calls calcDewPoint.B function
-Mode "C":  calls calcDewPoint.C function
+This function is a wrapper to access to one of the dew point calculation methods
+offered in this package.
+Read more about the method in calcDewPoint.A, calcDewPoint.B,calcDewPoint.C functions.
+}
+\examples{
+temp <- 25
+rh <- 54
+calcDewPoint(rh,temp) # it takes mode = "A" by default
+calcDewPoint(rh,temp,mode="B")
 }
