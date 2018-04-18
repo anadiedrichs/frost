@@ -100,6 +100,77 @@ plotTrend <- function(Tmin, t2, n)
   plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature trend")
   return(v)
 }
+#'
+#'@title empiric equation for minimum temperature used in Mendoza
+#'@description
+#' According to Maldonado (see [1]), the empirical equation used in Mendoza to estimate the minimum
+#' temperature in the night is:
+#'
+#' Tmin = ((Tmax + dew)/2)) - K
+#'
+#' , where K is a constant calculated for each place, Tmax: maximum temperature of previous day, dew: dew point
+#' in °C, Tmin: is the forecaste minimum temperature.
+#' Given an array of the information of dw, tempMax and tmin,
+#' this function calculates K constant using linear regression.
+#' [1] Ortiz Maldonado, Alberto. Adversidades agrometeorológicas de Mendoza. 1991.
+#'@param dw Dew Point in °C
+#'@param tempMax Maximum temperature of the previous day
+#'@param tmin Minimum temperature measure that day.
+#'@return a list with:
+#'* K constant value, which could be used in predMza function
+#'* model: an object of class lm (see ?lm)
+#'@examples
+#' # just a random example
+#' dw <- c(-2,-5,2,6,8)
+#' tempMax <- c(10,20,30,25,29)
+#' tmin <- c(-1,-2,3,5,10)
+#' predMzaCalculateEquation(dw,tempMax,tmin)
+predMzaCalculateEquation <- function(dw,tempMax,tmin)
+{
+  k = vector(mode = "logical", length = length(dw))
+  # chequear que no haya valores nulos
+
+  if(checkTemp(dw) && checkTemp(tempMax) && checkTemp(tmin)
+     && checkLenght(dw,tmin) && checkLenght(tempMax,tmin))
+  {
+    # k <- ((tempMax + dw)/2)-tmin
+    dd <- as.data.frame(cbind(dw,tempMax,tmin))
+    model <- lm(tmin~.,as.data.frame(dd))
+    # TODO check that model is ok or not null before return
+  }
+  return(list(model=model,k = model$coefficients[[1]]))
+}
+
+#'@title empiric equation for minimum temperature used in Mendoza
+#'@description
+#' According to Maldonado (see [1]), the empirical equation used in Mendoza to estimate the minimum
+#' temperature in the night is:
+#'
+#' Tmin = ((Tmax + dew)/2)) - K
+#'@param dw Dew Point in °C
+#'@param tempMax Maximum temperature of the previous day
+#'@param K numeric constant
+#'#'@return predicted minimum temperature
+#'@examples
+#' # just an example
+#' dw <- c(-2,-5,2,6,8)
+#' tempMax <- c(10,20,30,25,29)
+#' tmin <- c(-1,-2,3,5,10)
+#' out <- predMzaCalculateEquation(dw,tempMax,tmin)
+#' predMza(dw = -3, tempMax = 15, K=out$K)
+#'
+predMza <- function(dw,tempMax,K)
+{
+  tmin <- NULL
+
+  if(checkTemp(dw) && checkTemp(tempMax) && checkLenght(dw,tempMax) )
+  {
+    tmin <- ((tempMax + dw)/2) - K
+  }
+
+  return(tmin)
+}
+
 
 # consultar a darksky la temperatura de dicho sitio + punto de rocio actual
 # tambien obtener su pronostico
