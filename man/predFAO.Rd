@@ -17,15 +17,26 @@ predFAO(dw, temp, tmin)
 a, b, and c values
 }
 \description{
-Predict the minimum temperature using the recommended FAO equation, which can be applied to
+Predict the minimum temperature using the recommended FAO equation, which
+can be applied to
 nights with radiative frost (wind less than 2 m/s^2, no clouds, no rain).
-For more details please check: TODO
 }
 \details{
-Tmim = a * temp + b * dw + c
-where *temp*  and *dw* are the temperature and dew point respectively (chequear spelling)
+#' The method was extracted from the documentation and previous implementation in FFST.xls file,
+which is name in the book
+"Frost Protection: fundamentals, practice, and economics. Volume 1.
+Authors: Richard L Snyder, J. Paulo de Melo-Abreu.
+Food and Agriculture Organization of the United Nations. 2005"
+
+This function implements the method resolve the equation and find the coefficients.
+Equation: Tmim = a * temp + b * dw + c
+where "temp"  and "dw" are the temperature and dew point respectively (chequear spelling)
 two hours after sunset
-This function resolve the equation and find the coefficients
+
+For more details please check: TODO
+http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
+http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
+Revisar FFST.xls
 }
 \examples{
 x1 <- rnorm(100,mean=2,sd=5)
