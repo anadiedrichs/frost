@@ -35,10 +35,12 @@ checkLenght <- function(a,b)
 #' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)
 #' @export
-#' @example
+#' @examples
+#' \dontrun{
 #' temp <- 25
 #' rh <- 54
 #' calcDewPoint.A(rh,temp)
+#' }
 calcDewPoint.A <- function(RH,temp) {return((RH/100 )^(1/8) * (110+temp) -110)}
 
 #' @title Calculates dew point from ambient temperature and relative humidity.
@@ -51,10 +53,12 @@ calcDewPoint.A <- function(RH,temp) {return((RH/100 )^(1/8) * (110+temp) -110)}
 #' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)
 #' @export
-#' @example
+#' @examples
+#' \dontrun{
 #' temp <- 25
 #' rh <- 54
 #' calcDewPoint.B(rh,temp)
+#' }
 calcDewPoint.B <- function(RH,temp) {
   dw <- 0
   if(RH < 50){ dw <- (0.198 + 0.0017*temp) * RH + (0.84*temp) - 19.2}
@@ -70,10 +74,12 @@ calcDewPoint.B <- function(RH,temp) {
 #' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)
 #' @export
-#' @example
+#' @examples
+#' \dontrun{
 #' temp <- 25
 #' rh <- 54
 #' calcDewPoint.C(rh,temp)
+#' }
 calcDewPoint.C <- function(RH,temp){
   return (243.04*(log(RH/100)+((17.625*temp)/(243.04+temp)))/(17.625-log(RH/100)-((17.625*temp)/(243.04+temp))))
 }

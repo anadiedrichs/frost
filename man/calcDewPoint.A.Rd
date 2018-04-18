@@ -21,3 +21,10 @@ $$ (RH/100 )^(1/8) * (110+temp) -110) $$
 The formula was taken from this wikipedia page:
 https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo
 }
+\examples{
+\dontrun{
+temp <- 25
+rh <- 54
+calcDewPoint.A(rh,temp)
+}
+}

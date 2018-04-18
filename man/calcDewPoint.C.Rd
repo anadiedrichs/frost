@@ -19,3 +19,10 @@ Calculation of dew point using the approach given in the following paper:
 Alduchov and Eskridge (1996),
 Improved Magnus' form approximation of saturation vapor pressure. J. Appl. Meteor., 35, 601–609.
 }
+\examples{
+\dontrun{
+temp <- 25
+rh <- 54
+calcDewPoint.C(rh,temp)
+}
+}
