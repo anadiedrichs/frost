@@ -1,5 +1,7 @@
 ## Prediction of minimum temperature for frost forecasting in agriculture
 
+[![Build Status](https://travis-ci.org/anadiedrichs/frost.svg?branch=master)](https://travis-ci.org/anadiedrichs/frost)
+
 ### Description
 
 This package contains a compilation of empirical methods used by farmers and agronomic engineers to predict the minimum temperature to detect a frost event. 
