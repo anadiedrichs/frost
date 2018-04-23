@@ -4,16 +4,17 @@
 \alias{plotTrend}
 \title{Predict the trend of the temperature during a frost nigth.
 This equation has been taken
-from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm}
+from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
+which was also published in the book}
 \usage{
 plotTrend(Tmin, t2, n)
 }
 \arguments{
-\item{Tmin}{predicted minimum temperature}
+\item{Tmin}{predicted minimum temperature.}
 
-\item{t2}{temperature 2 hours after sunset}
+\item{t2}{temperature 2 hours after sunset, where t2 > Tmin}
 
-\item{n}{how many hours between sunset and sunrise}
+\item{n}{how many hours between sunset and sunrise, an integer value where n > 2}
 }
 \value{
 A vector with the n-2 values of estimated temperatures
@@ -22,6 +23,7 @@ A vector with the n-2 values of estimated temperatures
 Predict the trend of the temperature during a frost nigth.
 This equation has been taken
 from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
+which was also published in the book
 }
 \examples{
 plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
