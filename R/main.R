@@ -1,10 +1,9 @@
 
-#'
 #' @title Predict the minimum temperature using the recommended FAO equation
 #' @description
 #' Predict the minimum temperature using the recommended FAO equation, which
 #' can be applied to
-#' nights with radiative frost (wind less than 2 m/s^2, no clouds, no rain).
+#' nights with radiative frost (wind less than 2 m/s^2, no clouds, no fog, no rain).
 #'
 #' @details
 #' #' The method was extracted from the documentation and previous implementation in FFST.xls file,
@@ -13,51 +12,58 @@
 #' Authors: Richard L Snyder, J. Paulo de Melo-Abreu.
 #' Food and Agriculture Organization of the United Nations. 2005"
 #'
-#' This function implements the method resolve the equation and find the coefficients.
+#' This function implements the method, resolve the equation and find the coefficients.
 #' Equation: Tmim = a * temp + b * dw + c
-#' where "temp"  and "dw" are the temperature and dew point respectively (chequear spelling)
+#' where "temp"  and "dw" are the temperature and dew point respectively, which must be taken
 #' two hours after sunset
 #'
-#' For more details please check: TODO
+#' For more details please check:
 #' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
 #' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
-#' Revisar FFST.xls
+#' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+#'
 #' @param temp [°C]: an array of ambient temperature, two hours after sunset.
 #' @param dw [°C]: an array of dew points, two hours after sunset.
 #' @param tmin [°C]: minimum temperature
-#' @return a, b, and c values
+#' @return a, b, and c values, which can be used to estimate minimum temperature (Tmin) using temp
+#' and dw. This function also returns Tp (predicted temperature using the equation), Rp (residuals, the
+#' difference between tmin given and Tp) and r2 which is the coefficient of correlation (R squared).
 #' @export
 #' @examples
 #' x1 <- rnorm(100,mean=2,sd=5)
 #' x2 <- rnorm(100,mean=1,sd=3)
 #' y <- rnorm(100,mean=0,sd=2)
 #' predFAO(dw = x2,temp=x1,tmin=y)
-
+#' #data example taken from FAO Book
+#' t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
+#' td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
+#' tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
+#' predFAO(dw = td,temp=t0,tmin=tn)
 predFAO <- function(dw,temp,tmin)
 {
-  a = 0; b = 0; c= 0
+  a = 0; b = 0; c= 0; d = 0
   # chequear que no haya valores nulos
 
   if(checkTemp(dw) && checkTemp(temp) && checkTemp(tmin)
      && checkLenght(dw,tmin) && checkLenght(temp,tmin))
   {
-    # primera formula
+    # first formula
     data = as.data.frame(cbind(y = tmin, x1 = temp, x2= dw))
     fit1 <- lm(y~x1, data=data)
-    a <- fit1$coefficients[[2]]
-    w <-  fit1$coefficients[[1]]
+    a <- fit1$coefficients[[2]] #slope
+    w <-  fit1$coefficients[[1]] #intercept
     #Tp prima = a t_0 + b
     tp_1 <- a * temp + w
     residual1 <- tmin - tp_1
     # segunda formula
-    fit2 <- lm(dw ~ residual1 , data=as.data.frame(cbind(dw = dw, residual1 = residual1)))
-    b <- fit2$coefficients[[2]]
-    c <- w + fit2$coefficients[[1]]
+    fit2 <- lm(res1 ~ dw , data=as.data.frame(cbind(dw = dw, res1 = residual1)))
+    b <- fit2$coefficients[[2]] # slope
+    c <- w + fit2$coefficients[[1]] # intercept
 
     # analisis de la prediccion
     Tp <- a * temp + b * dw + c
     Rp <- tmin - Tp
-    r2 <- (var(tmin)-(var(tmin)-var(Tp))) / var(tmin)
+    r2 <- rsquared(tmin, Tp) #(var(tmin)-(var(tmin)-var(Tp))) / var(tmin)
     return(list(a = a, b= b, c= c, Tp = Tp, Rp = Rp, r2 = r2))
 
   }else(return(NULL))
