@@ -18,6 +18,14 @@ checkLenght <- function(a,b)
   if(length(a)!= length(b))stop("Array arguments must have the same length")
   return(TRUE)
 }
+checkNoNA <- function(anArray)
+{
+  if(!is.null(anArray) && length(which(complete.cases(t0)==FALSE)) < 1)
+    return(TRUE)
+  else
+    stop("NAs or NULL values could be present in the array")
+
+}
 # RMSE root mean squared error
 rmse <- function(error)
 {

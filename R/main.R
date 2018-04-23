@@ -4,9 +4,7 @@
 #' Predict the minimum temperature using the recommended FAO equation, which
 #' can be applied to
 #' nights with radiative frost (wind less than 2 m/s^2, no clouds, no fog, no rain).
-#'
-#' @details
-#' #' The method was extracted from the documentation and previous implementation in FFST.xls file,
+#' @details The method was extracted from the documentation and previous implementation in FFST.xls file,
 #' which is name in the book
 #' "Frost Protection: fundamentals, practice, and economics. Volume 1.
 #' Authors: Richard L Snyder, J. Paulo de Melo-Abreu.
@@ -45,7 +43,8 @@ predFAO <- function(dw,temp,tmin)
   # chequear que no haya valores nulos
 
   if(checkTemp(dw) && checkTemp(temp) && checkTemp(tmin)
-     && checkLenght(dw,tmin) && checkLenght(temp,tmin))
+     && checkLenght(dw,tmin) && checkLenght(temp,tmin)
+    && checkNoNA(dw) && checkNoNA(tmin) && checkNoNA(temp))
   {
     # first formula
     data = as.data.frame(cbind(y = tmin, x1 = temp, x2= dw))
