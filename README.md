@@ -19,3 +19,7 @@ If you don't have package *devtools* installed, run the following commands.
 To install the package from the GitHub repo, run
 
 `` install_github("anadiedrichs/frost")``
+
+<img src="./vignettes/logo-frost.png" width="250">
+
+
