@@ -20,7 +20,7 @@ checkLenght <- function(a,b)
 }
 checkNoNA <- function(anArray)
 {
-  if(!is.null(anArray) && length(which(complete.cases(t0)==FALSE)) < 1)
+  if(!is.null(anArray) && length(which(complete.cases(anArray)==FALSE)) < 1)
     return(TRUE)
   else
     stop("NAs or NULL values could be present in the array")
