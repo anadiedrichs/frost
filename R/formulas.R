@@ -18,7 +18,16 @@ checkLenght <- function(a,b)
   if(length(a)!= length(b))stop("Array arguments must have the same length")
   return(TRUE)
 }
-
+# RMSE root mean squared error
+rmse <- function(error)
+{
+  sqrt(mean(error^2))
+}
+# coefficient of correlation, also known as r squared value
+rsquared <- function(a,b)
+{
+  (var(a)-(var(a)-var(b))) / var(a)
+}
 
 ###############################################################################33
 
