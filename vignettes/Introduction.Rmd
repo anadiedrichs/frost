@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "frost package"
+author: "Ana Laura Diedrichs"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -16,42 +16,84 @@ knitr::opts_chunk$set(
 )
 
 ```
-![Image1](logo-frost.png)
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+## Prediction of minimum temperature for frost forecasting in agriculture
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+### Description
 
-## Vignette Info
+This package contains a compilation of empirical methods used by farmers and agronomic engineers to predict the minimum temperature to detect a frost event. 
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+These functions use variables such as environmental temperature, relative humidity, and dew point.
 
-## Styles
+### Installation
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+If you don't have package *devtools* installed, run the following commands.
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
+`` install.packages("devtools") ``
 
-## Figures
+`` library(devtools) ``
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
+To install the package from the GitHub repo, run
 
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+`` install_github("anadiedrichs/frost")``
+
+<img src="logo-frost.png" width="250">
+
+## Dew point estimation
+
+ Given that several methods used dew point as an input variable, this package provides methods to estimate the dew point given ambient temperature and relative humidity.
+ 
+```{r, fig.show='hold' }
+library(frost)
+
+temp <- 25
+rh <- 54
+
+calcDewPoint(rh,temp,mode="A")
+calcDewPoint(rh,temp,mode="B")
+calcDewPoint(rh,temp,mode="C")
+
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+## Prediction of minimum temperature
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+### FAO approach
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+```{r}
+x1 <- rnorm(100,mean=2,sd=5)
+x2 <- rnorm(100,mean=1,sd=3)
+y <- rnorm(100,mean=0,sd=2)
+buildFAO(dw = x2,temp=x1,tmin=y)
+# data example taken from FAO Book
+t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
+td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
+tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
+out <- buildFAO(dw = td,temp=t0,tmin=tn)
+
+# We use the results of the model to have the coefficients for the formula
+current_temp <- 10
+current_dw <- 2
+predFAO(out$a,out$b,out$c,current_temp,current_dw)
+
+
+```
+
+
+
+```{r}
+```
+
+An estimated temperature trend during a frost night.
+
+```{r, fig.show='hold'}
+library(frost)
+
+plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
+plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
+```
+
+### Empirical formula used in Mendoza
+
 
 ## More Examples
 
