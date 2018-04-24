@@ -1,9 +1,10 @@
 
-#' @title Predict the minimum temperature using the recommended FAO equation
+#' @title Estimate the coefficients for the recommended FAO equation
 #' @description
-#' Predict the minimum temperature using the recommended FAO equation, which
-#' can be applied to
-#' nights with radiative frost (wind less than 2 m/s^2, no clouds, no fog, no rain).
+#' Estimate the coefficients for the recommended FAO equation using: ambient temperature
+#' and dew point taken two hours after sunset, and minimum  daily temperature, which
+#' were taken in nights with radiative frost
+#' (wind less than 2 m/s^2, no clouds, no fog, no rain).
 #' @details The method was extracted from the documentation and previous implementation in FFST.xls file,
 #' which is name in the book
 #' "Frost Protection: fundamentals, practice, and economics. Volume 1.
@@ -31,13 +32,13 @@
 #' x1 <- rnorm(100,mean=2,sd=5)
 #' x2 <- rnorm(100,mean=1,sd=3)
 #' y <- rnorm(100,mean=0,sd=2)
-#' predFAO(dw = x2,temp=x1,tmin=y)
+#' buildFAO(dw = x2,temp=x1,tmin=y)
 #' #data example taken from FAO Book
 #' t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
 #' td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
 #' tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
-#' predFAO(dw = td,temp=t0,tmin=tn)
-predFAO <- function(dw,temp,tmin)
+#' buildFAO(dw = td,temp=t0,tmin=tn)
+buildFAO <- function(dw,temp,tmin)
 {
   a = 0; b = 0; c= 0; d = 0
   # chequear que no haya valores nulos
@@ -69,13 +70,107 @@ predFAO <- function(dw,temp,tmin)
 #https://www.statmethods.net/stats/regression.html
 }
 
+#' @title Estimate the coefficients for the recommended FAO equation
+#' @description
+#'
+#' Estimate the coefficients for the recommended FAO equation using
+#' temperature two hours after sunset and minimum temperature.
+#' @details The method was extracted from the documentation and previous implementation in FFST.xls file,
+#' which is name in the book
+#' "Frost Protection: fundamentals, practice, and economics. Volume 1.
+#' Authors: Richard L Snyder, J. Paulo de Melo-Abreu.
+#' Food and Agriculture Organization of the United Nations. 2005"
+#'
+#' This function implements the method, resolve the equation and find the coefficients.
+#' Equation: Tmim = a * temp + c
+#' where "temp"  is the temperature which must be taken two hours after sunset
+#'
+#' For more details please check:
+#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
+#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
+#' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+#'
+#' @param temp [°C]: an array of ambient temperature, two hours after sunset.
+#' @param dw [°C]: an array of dew points, two hours after sunset.
+#' @param tmin [°C]: minimum temperature
+#' @return a, b, and c values, which can be used to estimate minimum temperature (Tmin) using temp
+#' and dw. This function also returns Tp (predicted temperature using the equation), Rp (residuals, the
+#' difference between tmin given and Tp) and r2 which is the coefficient of correlation (R squared).
+#' @examples
+#' x1 <- rnorm(100,mean=2,sd=5)
+#' x2 <- rnorm(100,mean=1,sd=3)
+#' y <- rnorm(100,mean=0,sd=2)
+#' buildFAO(dw = x2,temp=x1,tmin=y)
+#' #data example taken from FAO Book
+#' t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
+#' td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
+#' tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
+#' buildFAOTemp(dw = td,temp=t0,tmin=tn)
+buildFAOTemp <- function(dw,temp,tmin)
+{
+  a = 0; b = 0; c= 0; d = 0
+  # chequear que no haya valores nulos
 
-# predTrend <- function(Tmin, t2, i, n)
-# {
-#   b = ((Tmin - t2)/sqrt(n - 2))
-#   ti = t2 + b * sqrt(i-2)
-#   return(ti)
-# }
+  if(checkTemp(dw) && checkTemp(temp) && checkTemp(tmin)
+     && checkLenght(dw,tmin) && checkLenght(temp,tmin)
+     && checkNoNA(dw) && checkNoNA(tmin) && checkNoNA(temp))
+  {
+    # first formula
+    data = as.data.frame(cbind(y = tmin, x1 = temp, x2= dw))
+    fit1 <- lm(y~x1, data=data)
+    a <- fit1$coefficients[[2]] #slope
+    w <-  fit1$coefficients[[1]] #intercept
+
+    # analisis de la prediccion
+    Tp <- a * temp + w
+    Rp <- tmin - Tp
+    r2 <- rsquared(tmin, Tp)
+    return(list(a = a, b= NULL, c= w, Tp = Tp, Rp = Rp, r2 = r2))
+
+  }else(return(NULL))
+  #https://www.statmethods.net/stats/regression.html
+}
+
+#' @title Predict the minimum temperature using the recommended FAO equation
+#' @description
+#'
+#' Predict the minimum temperature using the recommended FAO equation, which
+#' can be applied to nights with radiative frost (wind less than 2 m/s^2, no clouds, no fog, no rain).
+#' @details The method was extracted from the documentation and previous implementation in FFST.xls file,
+#' which is name in the book
+#' "Frost Protection: fundamentals, practice, and economics. Volume 1.
+#' Authors: Richard L Snyder, J. Paulo de Melo-Abreu.
+#' Food and Agriculture Organization of the United Nations. 2005"
+#'
+#' This function returns Tmim = a * temp + b * dew + c
+#' if dew argument is not null.
+#' Otherwise, return Tmin = a * temp + c, if dew is NULL.
+#'
+#' For more details please check:
+#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
+#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
+#' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+#'
+#' @param a : coefficient calculated in buildFAO or buildFAOTemp
+#' @param b : coefficient calculated in buildFAO or buildFAOTemp
+#' @param c : coefficient calculated in buildFAO or buildFAOTemp
+#' @param t [°C]: an array of ambient temperature, two hours after sunset.
+#' @param dw [°C]: an array of dew points, two hours after sunset.
+#' @return  tmin [°C]: minimum temperature
+#' @examples
+#' t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
+#' td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
+#' tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
+#' out <- buildFAOTemp(dw = td,temp=t0,tmin=tn)
+#' # ecuacion o funcion para predecir en produccion
+#' # chequear valores de a,b,c,t,dw
+predFAO <- function(a,b,c,t,dw=NULL){
+
+  if(is.null(dw)) return(a*t +c) #TODO chequear el + c -- porque de usar solo la de temperatura seria el coeficiente w
+  return(a*t + (b*dw) +c)
+
+  }
+
 #' Predict the trend of the temperature during a frost nigth.
 #' This equation has been taken
 #' from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
@@ -91,8 +186,6 @@ predFAO <- function(dw,temp,tmin)
 #
 plotTrend <- function(Tmin, t2, n)
 {
-  #TODO check Tmin << a t2
-  #TODO check n sea mayor a 2
   v= NULL
   if(checkTemp(Tmin) && checkTemp(t2) && is.numeric(n))
   {
@@ -111,25 +204,25 @@ plotTrend <- function(Tmin, t2, n)
     plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature")
     return(v)
   }else stop("Check valid values for the function arguments")
-
-
 }
 #'
-#'@title empiric equation for minimum temperature used in Mendoza
+#'@title Empiric equation for minimum temperature used in Mendoza
 #'@description
-#' According to Maldonado (see [1]), the empirical equation used in Mendoza to estimate the minimum
+#' According to Maldonado (see [1]), the empirical equation used in Mendoza
+#' to estimate the minimum
 #' temperature in the night is:
 #'
 #' Tmin = ((Tmax + dew)/2)) - K
 #'
-#' , where K is a constant calculated for each place, Tmax: maximum temperature of previous day, dew: dew point
+#' , where K is a constant calculated for each place,
+#' Tmax: maximum temperature of previous day, dew: dew point
 #' in °C, Tmin: is the forecaste minimum temperature.
 #' Given an array of the information of dw, tempMax and tmin,
 #' this function calculates K constant using linear regression.
 #' [1] Ortiz Maldonado, Alberto. Adversidades agrometeorológicas de Mendoza. 1991.
-#'@param dw Dew Point in °C
-#'@param tempMax Maximum temperature of the previous day
-#'@param tmin Minimum temperature measure that day.
+#'@param dw [°C] Dew Point in °C
+#'@param tempMax [°C] Maximum temperature of the previous day
+#'@param tmin [°C] Minimum temperature measure that day.
 #'@return a list with:
 #'* K constant value, which could be used in predMza function
 #'* model: an object of class lm (see ?lm)
@@ -138,21 +231,26 @@ plotTrend <- function(Tmin, t2, n)
 #' dw <- c(-2,-5,2,6,8)
 #' tempMax <- c(10,20,30,25,29)
 #' tmin <- c(-1,-2,3,5,10)
-#' predMzaCalculateEquation(dw,tempMax,tmin)
-predMzaCalculateEquation <- function(dw,tempMax,tmin)
+#' buildMdz(dw,tempMax,tmin)
+buildMdz <- function(dw,tempMax,tmin)
 {
   k = vector(mode = "logical", length = length(dw))
-  # chequear que no haya valores nulos
 
   if(checkTemp(dw) && checkTemp(tempMax) && checkTemp(tmin)
      && checkLenght(dw,tmin) && checkLenght(tempMax,tmin))
   {
+    #TODO check, como calcular constante K, el approach
     # k <- ((tempMax + dw)/2)-tmin
     dd <- as.data.frame(cbind(dw,tempMax,tmin))
     model <- lm(tmin~.,as.data.frame(dd))
     # TODO check that model is ok or not null before return
+    k = tmin - ((tempMax+dw)/2)
+
   }
-  return(list(model=model,k = model$coefficients[[1]]))
+  # return(list(model=model,k = model$coefficients[[1]]))
+
+  return(list(model=model,k = mean(k), kmean = mean(k)))
+
 }
 
 #'@title empiric equation for minimum temperature used in Mendoza
@@ -170,10 +268,10 @@ predMzaCalculateEquation <- function(dw,tempMax,tmin)
 #' dw <- c(-2,-5,2,6,8)
 #' tempMax <- c(10,20,30,25,29)
 #' tmin <- c(-1,-2,3,5,10)
-#' out <- predMzaCalculateEquation(dw,tempMax,tmin)
-#' predMza(dw = -3, tempMax = 15, K=out$K)
+#' out <- buildMdz(dw,tempMax,tmin)
+#' predMdz(dw = -3, tempMax = 15, K=out$k)
 #'
-predMza <- function(dw,tempMax,K)
+predMdz <- function(dw,tempMax,K)
 {
   tmin <- NULL
 
@@ -181,7 +279,6 @@ predMza <- function(dw,tempMax,K)
   {
     tmin <- ((tempMax + dw)/2) - K
   }
-
   return(tmin)
 }
 
