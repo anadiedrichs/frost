@@ -37,13 +37,17 @@ To install the package from the GitHub repo, run
 
 `` install_github("anadiedrichs/frost")``
 
+Load the library to start using the functions
+
+`` library(frost) ``
+
 <img src="logo-frost.png" width="250">
 
 ## Dew point estimation
 
- Given that several methods used dew point as an input variable, this package provides methods to estimate the dew point given ambient temperature and relative humidity.
+ Given that several methods used dew point as an input variable, this package provides methods to estimate the dew point (in Celsius degree) given ambient temperature and relative humidity.
  
-```{r, fig.show='hold' }
+```{r}
 library(frost)
 
 temp <- 25
@@ -60,6 +64,7 @@ calcDewPoint(rh,temp,mode="C")
 ### FAO approach
 
 ```{r}
+library(frost)
 x1 <- rnorm(100,mean=2,sd=5)
 x2 <- rnorm(100,mean=1,sd=3)
 y <- rnorm(100,mean=0,sd=2)
