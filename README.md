@@ -2,6 +2,9 @@
 
 [![Build Status](https://travis-ci.org/anadiedrichs/frost.svg?branch=master)](https://travis-ci.org/anadiedrichs/frost)
 
+[![DOI](https://zenodo.org/badge/128426264.svg)](https://zenodo.org/badge/latestdoi/128426264)
+
+
 ### Description
 
 This package contains a compilation of empirical methods used by farmers and agronomic engineers to predict the minimum temperature to detect a frost event. 
