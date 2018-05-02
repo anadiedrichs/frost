@@ -63,8 +63,12 @@ calcDewPoint(rh,temp,mode="C")
 
 ### FAO approach
 
+The empirical formula for estimating the minimum temperature is $T_{min} = a * T + b * T_{dew} + c$.
+For calculating the coefficientes $a, b$ and $c$ we call `buildFAO(dw,temp,tmin)`.
+
 ```{r}
 library(frost)
+# We create random data
 x1 <- rnorm(100,mean=2,sd=5)
 x2 <- rnorm(100,mean=1,sd=3)
 y <- rnorm(100,mean=0,sd=2)
@@ -78,17 +82,16 @@ out <- buildFAO(dw = td,temp=t0,tmin=tn)
 # We use the results of the model to have the coefficients for the formula
 current_temp <- 10
 current_dw <- 2
-predFAO(out$a,out$b,out$c,current_temp,current_dw)
+ptmin <- predFAO(out$a,out$b,out$c,current_temp,current_dw)
+cat("The predicte minimum temperature is ",ptmin," °C")
 
-
+# We plot the temperature trend, we have 12 hours until sunrise
+plotTrend(Tmin = ptmin ,t2 = current_temp,n = 12) # in °C degress
 ```
 
 
+We can plot an estimated temperature trend during a frost night, calculated using the FAO recomendation.
 
-```{r}
-```
-
-An estimated temperature trend during a frost night.
 
 ```{r, fig.show='hold'}
 library(frost)
@@ -99,17 +102,16 @@ plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
 
 ### Empirical formula used in Mendoza
 
+The empirical formula for estimating the minimum temperature is $T_{min} = \frac{T_{max} + T_{dew}}{2} - K$. For calculating K, we call `buildMdz` function. Then for prediction we use `predMdz`.
 
-## More Examples
 
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+```{r}
+# just an example
+dw <- c(-2,-5,2,6,8)
+tempMax <- c(10,20,30,25,29)
+tmin <- c(-1,-2,3,5,10)
+out <- buildMdz(dw,tempMax,tmin)
+print(out)
+predMdz(dw = -3, tempMax = 15, K=out$k)
 ```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
 
