@@ -1,8 +1,6 @@
 ## Prediction of minimum temperature for frost forecasting in agriculture
 
-[![Build Status](https://travis-ci.org/anadiedrichs/frost.svg?branch=master)](https://travis-ci.org/anadiedrichs/frost)
-
-[![DOI](https://zenodo.org/badge/128426264.svg)](https://zenodo.org/badge/latestdoi/128426264)
+[![Build Status](https://travis-ci.org/anadiedrichs/frost.svg?branch=master)](https://travis-ci.org/anadiedrichs/frost) [![DOI](https://zenodo.org/badge/128426264.svg)](https://zenodo.org/badge/latestdoi/128426264)
 
 
 ### Description
