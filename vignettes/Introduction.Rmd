@@ -58,7 +58,19 @@ calcDewPoint(rh,temp,mode="B")
 calcDewPoint(rh,temp,mode="C")
 
 ```
+## Temperature conversions
 
+Most of the predictive methods use temperature in degree Celsius, so maybe you want to convert your temperature values to this unit. You can use the method `convert.temperature` to achieve this, and convert from/to Kelvin (K), Fahrenheit (F) or Celcius (C).
+
+```{r}
+library(frost)
+
+library(frost)
+convert.temperature(from="K", to="C",350)
+cels <- convert.temperature(from="F",to="C",c(120,80,134,110))
+k <- convert.temperature(from="C", to="K",cels)
+
+```
 ## Prediction of minimum temperature
 
 ### FAO approach
