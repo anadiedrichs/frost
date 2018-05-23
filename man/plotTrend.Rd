@@ -2,10 +2,7 @@
 % Please edit documentation in R/main.R
 \name{plotTrend}
 \alias{plotTrend}
-\title{Predict the trend of the temperature during a frost nigth.
-This equation has been taken
-from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
-which was also published in the book}
+\title{Predict the trend of the temperature during a frost night.}
 \usage{
 plotTrend(Tmin, t2, n)
 }
@@ -17,13 +14,14 @@ plotTrend(Tmin, t2, n)
 \item{n}{how many hours between sunset and sunrise, an integer value where n > 2}
 }
 \value{
-A vector with the n-2 values of estimated temperatures
+A list with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
 }
 \description{
-Predict the trend of the temperature during a frost nigth.
+Predict the trend of the temperature during a frost night.
 This equation has been taken
-from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
-which was also published in the book
+from UC Davis formula [1] which was also published in the FAO book mentioned in predFAO function.
+
+[1] http://biomet.ucdavis.edu/frostprotection/fp002.htm
 }
 \examples{
 plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress

@@ -171,14 +171,17 @@ predFAO <- function(a,b,c,t,dw=NULL){
 
   }
 
-#' Predict the trend of the temperature during a frost nigth.
+#' @title Predict the trend of the temperature during a frost night.
+#' @description
+#' Predict the trend of the temperature during a frost night.
 #' This equation has been taken
-#' from UC Davis formula http://biomet.ucdavis.edu/frostprotection/fp002.htm
-#' which was also published in the book
+#' from UC Davis formula [1] which was also published in the FAO book mentioned in predFAO function.
+#'
+#' [1] http://biomet.ucdavis.edu/frostprotection/fp002.htm
 #' @param Tmin predicted minimum temperature.
 #' @param t2 temperature 2 hours after sunset, where t2 > Tmin
 #' @param n how many hours between sunset and sunrise, an integer value where n > 2
-#' @return A vector with the n-2 values of estimated temperatures
+#' @return A list with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
 #' @export
 #' @examples
 #' plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
@@ -201,8 +204,9 @@ plotTrend <- function(Tmin, t2, n)
     }
     #print(length(v))
     #print(length(seq(3,n,1)))
-    plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature")
-    return(v)
+    plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature",col="red")
+    return(list(x= c(3:n),y=v))
+
   }else stop("Check valid values for the function arguments")
 }
 #'
