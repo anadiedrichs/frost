@@ -1,5 +1,4 @@
 ###############################################################################33
-
 #' @title  Calculates dew point from ambient temperature and relative humidity.
 #'
 #' @description
