@@ -24,6 +24,6 @@ To install the package from the GitHub repo, run
 
 ### More info
 
-You can have more information about how to use this package in the [Introduction vignette](./vignettes/frost\ package.html)
+You can have more information about how to use this package in the *Introduction vignette* located in vignettes/Introduction.Rmd
 
 
