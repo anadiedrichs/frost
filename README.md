@@ -22,4 +22,8 @@ To install the package from the GitHub repo, run
 
 <img src="./vignettes/logo-frost.png" width="250">
 
+### More info
+
+You can have more information about how to use this package in the [Introduction vignette](./vignettes/frost\ package.html)
+
 
