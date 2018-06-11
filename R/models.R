@@ -171,7 +171,7 @@ predFAO <- function(a,b,c,t,dw=NULL){
 
   }
 
-#' @title Predict the trend of the temperature during a frost night.
+#' @title Temperature trend during a frost night.
 #' @description
 #' Predict the trend of the temperature during a frost night.
 #' This equation has been taken
@@ -181,13 +181,14 @@ predFAO <- function(a,b,c,t,dw=NULL){
 #' @param Tmin predicted minimum temperature.
 #' @param t2 temperature 2 hours after sunset, where t2 > Tmin
 #' @param n how many hours between sunset and sunrise, an integer value where n > 2
+#' @param plot TRUE if you want to see the trend plot, otherwise FALSE. Default value: FALSE
 #' @return A list with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
 #' @export
 #' @examples
-#' plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
-#' plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
+#' getTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
+#' getTrend(Tmin = -5.45,t2 = 0.95,n = 15,plot=TRUE) # in °C degress
 #
-plotTrend <- function(Tmin, t2, n)
+getTrend <- function(Tmin, t2, n, plot=FALSE)
 {
   v= NULL
   if(checkTemp(Tmin) && checkTemp(t2) && is.numeric(n))
