@@ -7,6 +7,7 @@ vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  % \VignetteDepends{ggplot2}
 ---
 
 ```{r setup, include = FALSE}
@@ -98,7 +99,7 @@ ptmin <- predFAO(out$a,out$b,out$c,current_temp,current_dw)
 cat("The predicte minimum temperature is ",ptmin," °C")
 
 # We plot the temperature trend, we have 12 hours until sunrise
-plotTrend(Tmin = ptmin ,t2 = current_temp,n = 12) # in °C degress
+getTrend(Tmin = ptmin ,t2 = current_temp,n = 12,plot=TRUE) # in °C degress
 ```
 
 
@@ -107,16 +108,16 @@ We can plot an estimated temperature trend during a frost night, calculated usin
 ```{r, fig.show='hold'}
 library(frost)
 
-plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
-plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
+getTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
+getTrend(Tmin = -5.45,t2 = 0.95,n = 15, plot=TRUE) # in °C degress
 ```
 
 We can use the output of `plotTrend` to plot using other libraries such as ggplot2.
 
 ```{r, fig.show='hold'}
 library(frost)
-var <- plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
-library(ggplot2)
+var <- getTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
+require(ggplot2)
 # just plotting points
 ggplot(as.data.frame(var),aes(x=x,y=y)) + geom_point(color="blue")
 # add trend line
