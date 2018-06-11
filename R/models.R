@@ -182,7 +182,7 @@ predFAO <- function(a,b,c,t,dw=NULL){
 #' @param t2 temperature 2 hours after sunset, where t2 > Tmin
 #' @param n how many hours between sunset and sunrise, an integer value where n > 2
 #' @param plot TRUE if you want to see the trend plot, otherwise FALSE. Default value: FALSE
-#' @return A list with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
+#' @return A data frame with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
 #' @export
 #' @examples
 #' getTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
@@ -206,7 +206,7 @@ getTrend <- function(Tmin, t2, n, plot=FALSE)
     #print(length(v))
     #print(length(seq(3,n,1)))
     plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature",col="red")
-    return(list(x= c(3:n),y=v))
+    return(data.frame(x= c(3:n),y=v))
 
   }else stop("Check valid values for the function arguments")
 }

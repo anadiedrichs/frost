@@ -119,9 +119,9 @@ library(frost)
 var <- getTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
 require(ggplot2)
 # just plotting points
-ggplot(as.data.frame(var),aes(x=x,y=y)) + geom_point(color="blue")
+ggplot(var,aes(x=x,y=y)) + geom_point(color="blue")
 # add trend line
-ggplot(as.data.frame(var),aes(x=x,y=y)) + geom_point() + geom_smooth(color="red")
+ggplot(var,aes(x=x,y=y)) + geom_point() + geom_smooth(color="red")
 ```
 ### Empirical formula used in Mendoza
 

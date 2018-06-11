@@ -16,7 +16,7 @@ getTrend(Tmin, t2, n, plot = FALSE)
 \item{plot}{TRUE if you want to see the trend plot, otherwise FALSE. Default value: FALSE}
 }
 \value{
-A list with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
+A data frame with the (x,y) points plotted, where y values are the n-2 values of estimated temperatures
 }
 \description{
 Predict the trend of the temperature during a frost night.
