@@ -1,6 +1,6 @@
 #exportPattern("^[[:alpha:]]+")
 export(predFAO,buildFAO,buildFAOTemp)
-export(plotTrend)
+export(getTrend)
 export(calcDewPoint)
 export(buildMdz,predMdz)
 export(convert.temperature)
