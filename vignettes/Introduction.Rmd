@@ -104,7 +104,6 @@ plotTrend(Tmin = ptmin ,t2 = current_temp,n = 12) # in °C degress
 
 We can plot an estimated temperature trend during a frost night, calculated using the FAO recomendation.
 
-
 ```{r, fig.show='hold'}
 library(frost)
 
@@ -112,6 +111,17 @@ plotTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress
 plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
 ```
 
+We can use the output of `plotTrend` to plot using other libraries such as ggplot2.
+
+```{r, fig.show='hold'}
+library(frost)
+var <- plotTrend(Tmin = -5.45,t2 = 0.95,n = 15) # in °C degress
+library(ggplot2)
+# just plotting points
+ggplot(as.data.frame(var),aes(x=x,y=y)) + geom_point(color="blue")
+# add trend line
+ggplot(as.data.frame(var),aes(x=x,y=y)) + geom_point() + geom_smooth(color="red")
+```
 ### Empirical formula used in Mendoza
 
 The empirical formula for estimating the minimum temperature is $T_{min} = \frac{T_{max} + T_{dew}}{2} - K$. For calculating K, we call `buildMdz` function. Then for prediction we use `predMdz`.
