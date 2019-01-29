@@ -123,6 +123,8 @@ ggplot(var,aes(x=x,y=y)) + geom_point(color="blue")
 # add trend line
 ggplot(var,aes(x=x,y=y)) + geom_point() + geom_smooth(color="red")
 ```
+
+
 ### Empirical formula used in Mendoza
 
 The empirical formula for estimating the minimum temperature is $T_{min} = \frac{T_{max} + T_{dew}}{2} - K$. For calculating K, we call `buildMdz` function. Then for prediction we use `predMdz`.
