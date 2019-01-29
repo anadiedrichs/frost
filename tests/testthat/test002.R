@@ -1,11 +1,6 @@
 library(frost)
 context("temperature conversion")
-rh <- 54
-temp <- 25
 
-
-cels <- convert.temperature(from="F",to="C",c(120,80,134,110))
-k <- convert.temperature(from="C", to="K",cels)
 test_that("Testing temperature conversion from Kelvin to Celsius ", {
   expect_equal(convert.temperature(from="K", to="C",350),76.85, tolerance = .01 )
   expect_equal(convert.temperature(from ="K", to="C",273.15),0, tolerance = .01 )
