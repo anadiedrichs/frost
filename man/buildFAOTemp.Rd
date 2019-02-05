@@ -4,11 +4,9 @@
 \alias{buildFAOTemp}
 \title{Estimate the coefficients for the recommended FAO equation}
 \usage{
-buildFAOTemp(dw, temp, tmin)
+buildFAOTemp(temp, tmin)
 }
 \arguments{
-\item{dw}{[°C]: an array of dew points, two hours after sunset.}
-
 \item{temp}{[°C]: an array of ambient temperature, two hours after sunset.}
 
 \item{tmin}{[°C]: minimum temperature}
@@ -45,7 +43,6 @@ y <- rnorm(100,mean=0,sd=2)
 buildFAO(dw = x2,temp=x1,tmin=y)
 #data example taken from FAO Book
 t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
-td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
 tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
-buildFAOTemp(dw = td,temp=t0,tmin=tn)
+buildFAOTemp(temp=t0,tmin=tn)
 }
