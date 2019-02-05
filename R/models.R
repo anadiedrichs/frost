@@ -1,4 +1,7 @@
 
+setClass("FAOFrostModel",
+         representation(a = "numeric", b = "numeric", c= "numeric", Tp="numeric",Rp="numeric",r2="numeric"))
+
 #' @title Estimate the coefficients for the recommended FAO equation
 #' @description
 #' Estimate the coefficients for the recommended FAO equation using: ambient temperature
@@ -64,7 +67,11 @@ buildFAO <- function(dw,temp,tmin)
     Tp <- a * temp + b * dw + c
     Rp <- tmin - Tp
     r2 <- rsquared(tmin, Tp) #(var(tmin)-(var(tmin)-var(Tp))) / var(tmin)
-    return(list(a = a, b= b, c= c, Tp = Tp, Rp = Rp, r2 = r2))
+
+    model <- new("FAOFrostModel",a = a, b= b, c= c, Tp = Tp, Rp = Rp, r2 = r2)
+
+    # return(list(a = a, b= NULL, c= w, Tp = Tp, Rp = Rp, r2 = r2))
+    return(model)
 
   }else(return(NULL))
 #https://www.statmethods.net/stats/regression.html
@@ -125,8 +132,10 @@ buildFAOTemp <- function(dw,temp,tmin)
     Tp <- a * temp + w
     Rp <- tmin - Tp
     r2 <- rsquared(tmin, Tp)
-    return(list(a = a, b= NULL, c= w, Tp = Tp, Rp = Rp, r2 = r2))
 
+    model <- new("FAOFrostModel",a = a, b= b, c= c, Tp = Tp, Rp = Rp, r2 = r2)
+   # return(list(a = a, b= NULL, c= w, Tp = Tp, Rp = Rp, r2 = r2))
+   return(model)
   }else(return(NULL))
   #https://www.statmethods.net/stats/regression.html
 }
