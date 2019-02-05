@@ -95,7 +95,7 @@ out <- buildFAO(dw = td,temp=t0,tmin=tn)
 # We use the results of the model to have the coefficients for the formula
 current_temp <- 10
 current_dw <- 2
-ptmin <- predFAO(out$a,out$b,out$c,current_temp,current_dw)
+ptmin <- predFAO(out,current_temp,current_dw)
 cat("The predicte minimum temperature is ",ptmin," °C")
 
 # We plot the temperature trend, we have 12 hours until sunrise

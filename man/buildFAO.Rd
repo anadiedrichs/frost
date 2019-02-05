@@ -14,7 +14,7 @@ buildFAO(dw, temp, tmin)
 \item{tmin}{[°C]: minimum temperature}
 }
 \value{
-a, b, and c values, which can be used to estimate minimum temperature (Tmin) using temp
+A FAOFrostModel object with a, b, and c values, which can be used to estimate minimum temperature (Tmin) using temp
 and dw. This function also returns Tp (predicted temperature using the equation), Rp (residuals, the
 difference between tmin given and Tp) and r2 which is the coefficient of correlation (R squared).
 }

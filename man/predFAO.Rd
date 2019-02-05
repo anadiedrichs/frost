@@ -4,18 +4,14 @@
 \alias{predFAO}
 \title{Predict the minimum temperature using the recommended FAO equation}
 \usage{
-predFAO(a, b, c, t, dw = NULL)
+predFAO(model, t, dw = NULL)
 }
 \arguments{
-\item{a}{: coefficient calculated in buildFAO or buildFAOTemp}
-
-\item{b}{: coefficient calculated in buildFAO or buildFAOTemp}
-
-\item{c}{: coefficient calculated in buildFAO or buildFAOTemp}
+\item{model}{: a FAOFrostModel object}
 
 \item{t}{[°C]: an array of ambient temperature, two hours after sunset.}
 
-\item{dw}{[°C]: an array of dew points, two hours after sunset.}
+\item{dw}{[°C]: an array of dew points, two hours after sunset, by default is NULL.}
 }
 \value{
 tmin [°C]: minimum temperature
@@ -45,6 +41,9 @@ t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sun
 td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
 tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
 out <- buildFAOTemp(dw = td,temp=t0,tmin=tn)
-# ecuacion o funcion para predecir en produccion
-# chequear valores de a,b,c,t,dw
+current_temp <- 10
+current_dw <- 2
+ptmin <- predFAO(out,current_temp,current_dw)
+cat("The predicte minimum temperature is ",ptmin," °C")
+
 }
