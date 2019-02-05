@@ -63,3 +63,62 @@ test_that("Check argument errors", {
   expect_error(buildFAO(t0,NULL,td)) # null argument
   expect_error(buildFAO(t0,td,y), "Array arguments must have the same length")
 })
+
+# test buildFAOTemp
+context("buildFAOTemp")
+
+model1 <- buildFAOTemp(temp=x1,tmin=y)
+model2 <- buildFAOTemp(temp=t0,tmin=tn)
+
+test_that("Check no NULL values ", {
+
+  expect_is(model1,"FAOFrostModel")
+  expect_is(model2,"FAOFrostModel")
+
+  expect_is(model1@r2,"numeric")
+  expect_is(model1@a,"numeric")
+  expect_is(model1@b,"numeric")
+  expect_is(model1@c,"numeric")
+  expect_is(model1@Rp,"numeric")
+  expect_is(model1@Tp,"numeric")
+
+  expect_is(model2@r2,"numeric")
+  expect_is(model2@a,"numeric")
+  expect_is(model2@b,"numeric")
+  expect_is(model2@c,"numeric")
+  expect_is(model2@Rp,"numeric")
+  expect_is(model2@Tp,"numeric")
+
+})
+
+test_that("Check vectors ", {
+
+  expect_true(is.vector(model1@Rp))
+  expect_true(is.vector(model2@Rp))
+  expect_true(is.vector(model1@Tp))
+  expect_true(is.vector(model2@Tp))
+
+})
+test_that("Check length of Tp and Rp for model1", {
+  expect_length(model1@Tp,length(x1))
+  expect_length(model1@Tp,length(x2))
+  expect_length(model1@Tp,length(y))
+  expect_length(model1@Rp,length(x1))
+  expect_length(model1@Rp,length(x2))
+  expect_length(model1@Rp,length(y))
+})
+
+test_that("Check length of Tp and Rp for model2", {
+  expect_length(model2@Tp,length(t0))
+  expect_length(model2@Tp,length(td))
+  expect_length(model2@Tp,length(tn))
+  expect_length(model2@Rp,length(t0))
+  expect_length(model2@Rp,length(td))
+  expect_length(model2@Rp,length(tn))
+})
+
+
+test_that("Check argument errors", {
+  expect_error(buildFAOTemp(t0,NULL)) # null argument
+  expect_error(buildFAOTemp(t0,y), "Array arguments must have the same length")
+})
