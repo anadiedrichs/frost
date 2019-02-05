@@ -11,7 +11,8 @@ LazyData: true
 RoxygenNote: 6.1.1
 Suggests: knitr,rmarkdown,ggplot2,
     testthat
+Imports: methods
 VignetteBuilder: knitr
 URL: https://github.com/anadiedrichs/frost
 BugReports: https://github.com/anadiedrichs/frost/issues
-Date: 2018-06-10
+Date: 2019-04-04
