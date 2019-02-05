@@ -98,7 +98,6 @@ buildFAO <- function(dw,temp,tmin)
 #' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
 #'
 #' @param temp [°C]: an array of ambient temperature, two hours after sunset.
-#' @param dw [°C]: an array of dew points, two hours after sunset.
 #' @param tmin [°C]: minimum temperature
 #' @return A FAOFrostModel object with a, b, and c values, which can be used to estimate minimum temperature (Tmin) using temp
 #' and dw. This function also returns Tp (predicted temperature using the equation), Rp (residuals, the
@@ -110,20 +109,19 @@ buildFAO <- function(dw,temp,tmin)
 #' buildFAO(dw = x2,temp=x1,tmin=y)
 #' #data example taken from FAO Book
 #' t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
-#' td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
 #' tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
-#' buildFAOTemp(dw = td,temp=t0,tmin=tn)
-buildFAOTemp <- function(dw,temp,tmin)
+#' buildFAOTemp(temp=t0,tmin=tn)
+buildFAOTemp <- function(temp,tmin)
 {
   a = 0; b = 0; c= 0; d = 0
   # chequear que no haya valores nulos
 
-  if(checkTemp(dw) && checkTemp(temp) && checkTemp(tmin)
-     && checkLenght(dw,tmin) && checkLenght(temp,tmin)
-     && checkNoNA(dw) && checkNoNA(tmin) && checkNoNA(temp))
+  if( checkTemp(temp) && checkTemp(tmin)
+      && checkLenght(temp,tmin)
+     && checkNoNA(tmin) && checkNoNA(temp))
   {
     # first formula
-    data = as.data.frame(cbind(y = tmin, x1 = temp, x2= dw))
+    data = as.data.frame(cbind(y = tmin, x1 = temp))
     fit1 <- lm(y~x1, data=data)
     a <- fit1$coefficients[[2]] #slope
     w <-  fit1$coefficients[[1]] #intercept
