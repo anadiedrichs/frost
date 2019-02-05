@@ -1,6 +1,8 @@
 
 setClass("FAOFrostModel",
          representation(a = "numeric", b = "numeric", c= "numeric", Tp="numeric",Rp="numeric",r2="numeric"))
+setClass("MdzFrostModel",
+         representation(k = "numeric", kvector="numeric"))
 
 #' @title Estimate the coefficients for the recommended FAO equation
 #' @description
@@ -166,7 +168,7 @@ buildFAOTemp <- function(temp,tmin)
 #' t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
 #' td <- c(-4.2,-8.8,-6.5,-6.2,-6.1,2.6,-0.7,-1.7,-1.2,0.1) # dew point 2 hours after sunset
 #' tn <- c(-3.1,-5,-6.3,-5.4,-4,-2.5,-4.8,-5,-4.4,-3.3)
-#' out <- buildFAOTemp(dw = td,temp=t0,tmin=tn)
+#' out <- buildFAO(dw = td,temp=t0,tmin=tn)
 #' current_temp <- 10
 #' current_dw <- 2
 #' ptmin <- predFAO(out,current_temp,current_dw)
@@ -237,15 +239,32 @@ getTrend <- function(Tmin, t2, n, plot=FALSE)
 #'@param dw [°C] Dew Point in °C
 #'@param tempMax [°C] Maximum temperature of the previous day
 #'@param tmin [°C] Minimum temperature measure that day.
-#'@return a list with:
-#'* K constant value, which could be used in predMza function
-#'* model: an object of class lm (see ?lm)
+#'@return an object of class MdzFrostModel
 #'@examples
 #' # just a random example
 #' dw <- c(-2,-5,2,6,8)
 #' tempMax <- c(10,20,30,25,29)
 #' tmin <- c(-1,-2,3,5,10)
 #' buildMdz(dw,tempMax,tmin)
+
+
+# buildMdz <- function(dw,tempMax,tmin)
+# {
+#   k = vector(mode = "logical", length = length(dw))
+#
+#   #TODO check, como calcular constante K, el approach
+#   # k <- ((tempMax + dw)/2)-tmin
+#   dd <- as.data.frame(cbind(dw,tempMax,tmin))
+#   model <- lm(tmin~.,as.data.frame(dd))
+#   # TODO check that model is ok or not null before return
+#   k = tmin - ((tempMax+dw)/2)
+#   m = (tempMax + dw)/2
+#   dd2 = data.frame(tmin,dw=(0.5*dw),tempMax=(0.5*tempMax))
+#   lm2 = lm(tmin~dw+tempMax, dd2)
+#   return(list(model=model,k = mean(k), kmedian = median(k), kvector=k,lm2 = lm2))
+#
+# }
+
 buildMdz <- function(dw,tempMax,tmin)
 {
   k = vector(mode = "logical", length = length(dw))
@@ -259,11 +278,12 @@ buildMdz <- function(dw,tempMax,tmin)
     model <- lm(tmin~.,as.data.frame(dd))
     # TODO check that model is ok or not null before return
     k = tmin - ((tempMax+dw)/2)
+    model <- new("MdzFrostModel",k = mean(k), kvector=k)
 
   }
   # return(list(model=model,k = model$coefficients[[1]]))
 
-  return(list(model=model,k = mean(k), kmean = mean(k)))
+  return(model=model)
 
 }
 
@@ -275,24 +295,28 @@ buildMdz <- function(dw,tempMax,tmin)
 #' Tmin = ((Tmax + dew)/2)) - K
 #'@param dw Dew Point in °C
 #'@param tempMax Maximum temperature of the previous day
-#'@param K numeric constant
-#'#'@return predicted minimum temperature
+#'@param model an object of class MdzFrostModel, returned by buildMdz
+#'@return predicted minimum temperature
 #'@examples
 #' # just an example
 #' dw <- c(-2,-5,2,6,8)
 #' tempMax <- c(10,20,30,25,29)
 #' tmin <- c(-1,-2,3,5,10)
 #' out <- buildMdz(dw,tempMax,tmin)
-#' predMdz(dw = -3, tempMax = 15, K=out$k)
+#' predMdz(dw = -3, tempMax = 15, out)
 #'
-predMdz <- function(dw,tempMax,K)
+predMdz <- function(dw,tempMax,model)
 {
   tmin <- NULL
 
-  if(checkTemp(dw) && checkTemp(tempMax) && checkLenght(dw,tempMax) )
+  if(class(model)!="MdzFrostModel"){stop("model should be an object of type MdzFrostModel")}
+
+  if(checkTemp(dw) && checkTemp(tempMax) && checkLenght(dw,tempMax) &&
+     !is.null(model) && !is.na(model@k))
   {
-    tmin <- ((tempMax + dw)/2) - K
-  }
+    tmin <- ((tempMax + dw)/2) - model@k
+  }else{stop("Check the arguments of predMdz, they shouldn't be null, NA or empty")}
+
   return(tmin)
 }
 

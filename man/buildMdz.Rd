@@ -14,9 +14,7 @@ buildMdz(dw, tempMax, tmin)
 \item{tmin}{[°C] Minimum temperature measure that day.}
 }
 \value{
-a list with:
-* K constant value, which could be used in predMza function
-* model: an object of class lm (see ?lm)
+an object of class MdzFrostModel
 }
 \description{
 According to Maldonado (see [1]), the empirical equation used in Mendoza

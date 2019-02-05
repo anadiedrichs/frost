@@ -136,7 +136,6 @@ dw <- c(-2,-5,2,6,8)
 tempMax <- c(10,20,30,25,29)
 tmin <- c(-1,-2,3,5,10)
 out <- buildMdz(dw,tempMax,tmin)
-print(out)
-predMdz(dw = -3, tempMax = 15, K=out$k)
+predMdz(dw = -3, tempMax = 15, out)
 ```
 

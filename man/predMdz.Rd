@@ -4,15 +4,17 @@
 \alias{predMdz}
 \title{empiric equation for minimum temperature used in Mendoza}
 \usage{
-predMdz(dw, tempMax, K)
+predMdz(dw, tempMax, model)
 }
 \arguments{
 \item{dw}{Dew Point in °C}
 
 \item{tempMax}{Maximum temperature of the previous day}
 
-\item{K}{numeric constant
-#'@return predicted minimum temperature}
+\item{model}{an object of class MdzFrostModel, returned by buildMdz}
+}
+\value{
+predicted minimum temperature
 }
 \description{
 According to Maldonado (see [1]), the empirical equation used in Mendoza to estimate the minimum
@@ -26,6 +28,6 @@ dw <- c(-2,-5,2,6,8)
 tempMax <- c(10,20,30,25,29)
 tmin <- c(-1,-2,3,5,10)
 out <- buildMdz(dw,tempMax,tmin)
-predMdz(dw = -3, tempMax = 15, K=out$k)
+predMdz(dw = -3, tempMax = 15, out)
 
 }
