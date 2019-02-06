@@ -64,6 +64,25 @@ test_that("Check argument errors", {
   expect_error(buildFAO(t0,td,y), "Array arguments must have the same length")
 })
 
+context("predFAO using buildFAO")
+
+current_temp <- 10
+current_dw <- 2
+ptmin <- predFAO(model2,current_temp,current_dw)
+
+test_that("Check output ", {
+  expect_is(ptmin,"numeric")
+  expect_is(predFAO(model2,current_temp,NULL),"numeric")
+})
+
+test_that("Check errors ", {
+
+  expect_error(predFAO(NULL,current_temp,current_dw))
+  expect_error(predFAO(model2,NULL,current_dw))
+  expect_error(predFAO(new("MdzFrostModel",k = -10, kvector=C(8,-10)),current_temp,current_dw))
+})
+
+
 # test buildFAOTemp
 context("buildFAOTemp")
 

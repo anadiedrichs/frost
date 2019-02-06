@@ -176,10 +176,16 @@ buildFAOTemp <- function(temp,tmin)
 #'
 predFAO <- function(model,t,dw=NULL){
 
+  tmin <- NULL
   if(class(model)!="FAOFrostModel"){stop("model should be an object of type FAOFrostModel")}
-  if(is.null(dw)) return(model@a*t +model@c) #TODO chequear el + c -- porque de usar solo la de temperatura seria el coeficiente w
-  return(model@a*t + (model@b*dw) +model@c)
+  if(checkTemp(t))
+  {
+    if(is.null(dw))
+      tmin <- (model@a*t) + model@c
+    else tmin <- (model@a*t) + (model@b*dw) +model@c
 
+  }
+  return(tmin)
   }
 
 #' @title Temperature trend during a frost night.
