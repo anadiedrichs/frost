@@ -1,13 +1,13 @@
 # functions to validate inputs values
 
 checkRH <- function(x){
-  if((is.integer(x) || is.double(x)) && x <= 100 && x >0) return(TRUE)
+  if((is.integer(x) || is.double(x)) && any(x <= 100) && any(x >0)) return(TRUE)
   else{ stop("Relative humidity values must double and range between 1 and 100")}
 }
 
 checkTemp <- function(x){
 
-  if((is.integer(x) || is.double(x)) && x <= 60 && x >-20) return(TRUE)
+  if((is.integer(x) || is.double(x)) && any(x <= 60) && any(x > -20)) return(TRUE)
   else{
     stop("Temperature and dew point values must be doubles and range from -20 to 60")
   }
