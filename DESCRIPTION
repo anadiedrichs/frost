@@ -4,7 +4,7 @@ Title: Prediction of minimum temperature for frost forecasting in agriculture
 Version: 0.0.3
 Author: Ana Laura Diedrichs
 Maintainer: Ana Laura Diedrichs <ana.diedrichs@frm.utn.edu.ar>
-Description: This package contains a compilation of empirical methods used by farmers and agronomical engineers to predict the minimum temperature to detect a frost night. These functions use variables such as environmental temperature, relative humidity, and dew point.
+Description: A compilation of empirical methods used by farmers and agronomic engineers to predict the minimum temperature to detect a frost night. These functions use variables such as environmental temperature, relative humidity, and dew point.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
