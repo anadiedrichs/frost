@@ -1,7 +1,7 @@
 Package: frost
 Type: Package
 Title: Prediction of minimum temperature for frost forecasting in agriculture
-Version: 0.0.2
+Version: 0.0.3
 Author: Ana Laura Diedrichs
 Maintainer: Ana Laura Diedrichs <ana.diedrichs@frm.utn.edu.ar>
 Description: This package contains a compilation of empirical methods used by farmers and agronomical engineers to predict the minimum temperature to detect a frost night. These functions use variables such as environmental temperature, relative humidity, and dew point.
@@ -15,4 +15,4 @@ Imports: methods
 VignetteBuilder: knitr
 URL: https://github.com/anadiedrichs/frost
 BugReports: https://github.com/anadiedrichs/frost/issues
-Date: 2019-04-04
+Date: 2019-02-19
