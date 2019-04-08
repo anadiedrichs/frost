@@ -12,7 +12,8 @@ Authors@R: c(person(given = "Ana Laura",
              role = c("ths") ),
              person(given = "Diego",
              family = "Dujovne",
-             role = c("ths") ))
+             role = c("ths"),
+             comment = c(ORCID = "0000-0003-4207-633X") )) 
 Description: A compilation of empirical methods used by farmers and agronomic engineers to predict the minimum temperature to detect a frost night. These functions use variables such as environmental temperature, relative humidity, and dew point.
 License: MIT + file LICENSE
 Encoding: UTF-8
