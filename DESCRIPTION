@@ -2,8 +2,17 @@ Package: frost
 Type: Package
 Title: Prediction of Minimum Temperature for Frost Forecasting in Agriculture
 Version: 0.0.4
-Author: Ana Laura Diedrichs
-Maintainer: Ana Laura Diedrichs <ana.diedrichs@frm.utn.edu.ar>
+Authors@R: c(person(given = "Ana Laura",
+             family = "Diedrichs",
+             role = c("cre", "aut"),
+             comment = c(ORCID = "0000-0001-9973-4554"),
+             email = "ana.diedrichs@frm.utn.edu.ar" ),
+             person(given = "Facundo",
+             family = "Bromberg",
+             role = c("ths") ),
+             person(given = "Diego",
+             family = "Dujovne",
+             role = c("ths") ))
 Description: A compilation of empirical methods used by farmers and agronomic engineers to predict the minimum temperature to detect a frost night. These functions use variables such as environmental temperature, relative humidity, and dew point.
 License: MIT + file LICENSE
 Encoding: UTF-8
