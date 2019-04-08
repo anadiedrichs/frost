@@ -37,9 +37,9 @@ where "temp"  and "dw" are the temperature and dew point respectively, which mus
 two hours after sunset
 
 For more details please check:
-http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
-http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
-FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+<http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8>
+<http://www.fao.org/docrep/008/y7223e/y7223e0b.htm>
+FFST spreasheet <http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm>
 }
 \examples{
 x1 <- rnorm(100,mean=2,sd=5)

@@ -23,7 +23,7 @@ Predict the trend of the temperature during a frost night.
 This equation has been taken
 from UC Davis formula [1] which was also published in the FAO book mentioned in predFAO function.
 
-[1] http://biomet.ucdavis.edu/frostprotection/fp002.htm
+[1] <http://biomet.ucdavis.edu/frostprotection/fp002.htm>
 }
 \examples{
 getTrend(Tmin = 22.2,t2 = 33.7,n = 15) # in °F degress

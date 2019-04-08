@@ -17,8 +17,8 @@ dew point value (double)
 \description{
 Calculation of dew point using the Mark G. Lawrence approach given in the following paper:
 * "The Relationship between Relative Humidity and the Dewpoint Temperature in Moist Air:
-A Simple Conversion and Applications", DOI: https://doi.org/10.1175/BAMS-86-2-225 ,
-URL: https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225
+A Simple Conversion and Applications", DOI: <https://doi.org/10.1175/BAMS-86-2-225>,
+URL: <https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225>
 }
 \examples{
 \dontrun{

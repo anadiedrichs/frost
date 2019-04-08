@@ -19,7 +19,7 @@ The following formula is used for dew point estimation:
 $$ (RH/100 )^(1/8) * (110+temp) -110) $$
 ,where RH is relative humidity and temp is ambient temperature.
 The formula was taken from this wikipedia page:
-https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo
+<https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo>
 }
 \examples{
 \dontrun{

@@ -22,9 +22,9 @@ setClass("MdzFrostModel",
 #' two hours after sunset
 #'
 #' For more details please check:
-#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
-#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
-#' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+#' <http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8>
+#' <http://www.fao.org/docrep/008/y7223e/y7223e0b.htm>
+#' FFST spreasheet <http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm>
 #'
 #' @param temp [°C]: an array of ambient temperature, two hours after sunset.
 #' @param dw [°C]: an array of dew points, two hours after sunset.
@@ -95,9 +95,9 @@ buildFAO <- function(dw,temp,tmin)
 #' where "temp"  is the temperature which must be taken two hours after sunset
 #'
 #' For more details please check:
-#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
-#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
-#' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+#' <http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8>
+#' <http://www.fao.org/docrep/008/y7223e/y7223e0b.htm>
+#' FFST spreasheet <http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm>
 #'
 #' @param temp [°C]: an array of ambient temperature, two hours after sunset.
 #' @param tmin [°C]: minimum temperature
@@ -156,9 +156,9 @@ buildFAOTemp <- function(temp,tmin)
 #' Otherwise, return Tmin = a * temp + c, if dew is NULL.
 #'
 #' For more details please check:
-#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
-#' http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
-#' FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+#' <http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8>
+#' <http://www.fao.org/docrep/008/y7223e/y7223e0b.htm>
+#' FFST spreasheet <http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm>
 #'
 #' @param model : a FAOFrostModel object
 #' @param t [°C]: an array of ambient temperature, two hours after sunset.
@@ -194,7 +194,7 @@ predFAO <- function(model,t,dw=NULL){
 #' This equation has been taken
 #' from UC Davis formula [1] which was also published in the FAO book mentioned in predFAO function.
 #'
-#' [1] http://biomet.ucdavis.edu/frostprotection/fp002.htm
+#' [1] <http://biomet.ucdavis.edu/frostprotection/fp002.htm>
 #' @param Tmin predicted minimum temperature.
 #' @param t2 temperature 2 hours after sunset, where t2 > Tmin
 #' @param n how many hours between sunset and sunrise, an integer value where n > 2

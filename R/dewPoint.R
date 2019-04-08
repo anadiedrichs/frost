@@ -6,7 +6,7 @@
 #' $$ (RH/100 )^(1/8) * (110+temp) -110) $$
 #' ,where RH is relative humidity and temp is ambient temperature.
 #' The formula was taken from this wikipedia page:
-#' https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo
+#' <https://es.wikipedia.org/wiki/Punto_de_roc%C3%ADo>
 #'
 #' @param temp [°C] environmental temperature, an integer or double value between -20 and 60 °C
 #' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
@@ -24,8 +24,8 @@ calcDewPoint.A <- function(RH,temp) {return((RH/100 )^(1/8) * (110+temp) -110)}
 #' @description
 #' Calculation of dew point using the Mark G. Lawrence approach given in the following paper:
 #' * "The Relationship between Relative Humidity and the Dewpoint Temperature in Moist Air:
-#' A Simple Conversion and Applications", DOI: https://doi.org/10.1175/BAMS-86-2-225 ,
-#' URL: https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225
+#' A Simple Conversion and Applications", DOI: <https://doi.org/10.1175/BAMS-86-2-225>,
+#' URL: <https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225>
 #' @param temp [°C] environmental temperature, an integer or double value between -20 and 60 °C
 #' @param RH [in percentage] relative humidity, an integer or double value between 0 and 100.
 #' @return dew point value (double)

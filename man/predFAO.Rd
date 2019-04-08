@@ -32,9 +32,9 @@ if dew argument is not null.
 Otherwise, return Tmin = a * temp + c, if dew is NULL.
 
 For more details please check:
-http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8
-http://www.fao.org/docrep/008/y7223e/y7223e0b.htm
-FFST spreasheet http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm
+<http://www.fao.org/docrep/008/y7223e/y7223e0b.htm#bm11.8>
+<http://www.fao.org/docrep/008/y7223e/y7223e0b.htm>
+FFST spreasheet <http://biomet.ucdavis.edu/frostprotection/FTrend/FFST_FTrend.htm>
 }
 \examples{
 t0 <- c(3.2,0.8,0.2,2.6,4.4,5.2,2.7,1.2,4.5,5.6) # temperature 2 hours after sunset
