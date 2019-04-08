@@ -20,9 +20,9 @@ Alduchov and Eskridge (1996),
 Improved Magnus' form approximation of saturation vapor pressure. J. Appl. Meteor., 35, 601–609.
 }
 \examples{
-\dontrun{
+library(frost)
 temp <- 25
 rh <- 54
-calcDewPoint.C(rh,temp)
-}
+calcDewPoint(rh,temp,mode="C")
+
 }

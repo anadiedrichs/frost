@@ -21,9 +21,9 @@ A Simple Conversion and Applications", DOI: <https://doi.org/10.1175/BAMS-86-2-2
 URL: <https://journals.ametsoc.org/doi/pdf/10.1175/BAMS-86-2-225>
 }
 \examples{
-\dontrun{
+library(frost)
 temp <- 25
 rh <- 54
-calcDewPoint.B(rh,temp)
-}
+calcDewPoint(rh,temp,mode="B")
+
 }
