@@ -20,10 +20,9 @@ value (double)
 Temperature conversion from/to Fahrenheit (°F), degress Celsius (°C) and Kelvin (K)
 }
 \examples{
-\dontrun{
 library(frost)
 convert.temperature(from="K", to="C",350)
 cels <- convert.temperature(from="F",to="C",c(120,80,134,110))
 k <- convert.temperature(from="C", to="K",cels)
-}
+
 }

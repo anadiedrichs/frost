@@ -9,12 +9,11 @@
 #' @return value (double)
 #' @export
 #' @examples
-#'\dontrun{
 #' library(frost)
 #' convert.temperature(from="K", to="C",350)
 #' cels <- convert.temperature(from="F",to="C",c(120,80,134,110))
 #' k <- convert.temperature(from="C", to="K",cels)
-#'}
+#'
 convert.temperature <- function(from="F",to="C",values)
 {
   units <- c("F","C","K")
