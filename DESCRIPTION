@@ -28,6 +28,6 @@ Suggests:
     covr
 Imports: methods
 VignetteBuilder: knitr
-URL: https://github.com/anadiedrichs/frost
+URL: https://anadiedrichs.github.io/frost/
 BugReports: https://github.com/anadiedrichs/frost/issues
 Date: 2019-04-08

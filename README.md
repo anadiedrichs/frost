@@ -30,23 +30,4 @@ You can have more information about how to use this package in the [Introduction
 
 `> citation("frost")`
 
-To cite package ‘frost’ in publications use:
-
-Ana Laura Diedrichs (2018). frost: Prediction of minimum temperature for frost forecasting in agriculture. R package version 0.0.2. https://github.com/anadiedrichs/frost
-
-A BibTeX entry for LaTeX users is
-
-@Manual{,
-
-title = {frost: Prediction of minimum temperature for frost forecasting in agriculture},
-
-author = {Ana Laura Diedrichs},
-
-year = {2018},
-
-note = {R package version 0.0.2},
-
-url = {https://github.com/anadiedrichs/frost},
-
-}
 
