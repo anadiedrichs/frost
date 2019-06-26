@@ -1,7 +1,7 @@
 Package: frost
 Type: Package
 Title: Prediction of Minimum Temperature for Frost Forecasting in Agriculture
-Version: 0.0.4
+Version: 0.0.5
 Authors@R: c(person(given = "Ana Laura",
              family = "Diedrichs",
              role = c("cre", "aut"),
@@ -28,6 +28,6 @@ Suggests:
     covr
 Imports: methods
 VignetteBuilder: knitr
-URL: https://anadiedrichs.github.io/frost/
+URL: https://anadiedrichs.github.io/frost/ https://github.com/anadiedrichs/frost
 BugReports: https://github.com/anadiedrichs/frost/issues
-Date: 2019-04-08
+Date: 2019-06-26

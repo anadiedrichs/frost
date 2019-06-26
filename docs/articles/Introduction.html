@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">frost</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
       </span>
     </div>
 
@@ -58,7 +58,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/anadiedrichs/frost">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -75,7 +82,7 @@
             
             <h4 class="date">2019-06-26</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/anadiedrichs/frost/blob/master/vignettes/Introduction.Rmd"><code>vignettes/Introduction.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction.Rmd</code></div>
 
     </div>
@@ -147,60 +154,60 @@ y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <span class="kw"><a href="../reference/buildFAO.html">buildFAO</a></span>(<span class="dt">dw =</span> x2,<span class="dt">temp=</span>x1,<span class="dt">tmin=</span>y)
 <span class="co">#&gt; An object of class "FAOFrostModel"</span>
 <span class="co">#&gt; Slot "a":</span>
-<span class="co">#&gt; [1] 0.02271601</span>
+<span class="co">#&gt; [1] 0.01037208</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "b":</span>
-<span class="co">#&gt; [1] -0.01222164</span>
+<span class="co">#&gt; [1] -0.03337787</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "c":</span>
-<span class="co">#&gt; [1] -0.07164099</span>
+<span class="co">#&gt; [1] -0.1428724</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "Tp":</span>
-<span class="co">#&gt;   [1] -1.429049e-01 -6.469160e-02  8.840762e-02 -1.507181e-01 -1.252654e-01</span>
-<span class="co">#&gt;   [6] -1.415381e-01 -1.149745e-01 -9.718722e-02  2.428597e-02 -2.936234e-01</span>
-<span class="co">#&gt;  [11]  2.899950e-02 -1.691851e-01 -4.918261e-02 -8.492904e-02 -7.468931e-02</span>
-<span class="co">#&gt;  [16] -2.119786e-02 -2.479424e-01 -2.295240e-02 -1.123774e-01 -1.805935e-02</span>
-<span class="co">#&gt;  [21]  8.899128e-02 -2.565257e-01  3.442834e-02  5.826842e-03  7.008207e-02</span>
-<span class="co">#&gt;  [26]  4.156521e-02 -1.192343e-01 -2.658123e-01  2.038083e-01  3.116876e-02</span>
-<span class="co">#&gt;  [31] -3.766929e-01 -1.598533e-01 -2.376150e-02  4.860750e-02 -1.883544e-02</span>
-<span class="co">#&gt;  [36] -1.775295e-01 -1.502624e-01 -1.742773e-01  7.576443e-02 -9.163328e-02</span>
-<span class="co">#&gt;  [41] -9.947872e-02 -4.827976e-02 -1.447440e-01 -1.099846e-01  1.421351e-01</span>
-<span class="co">#&gt;  [46] -8.966154e-02  3.202107e-02  1.079881e-02 -6.094975e-02  6.942445e-02</span>
-<span class="co">#&gt;  [51]  1.226853e-02 -6.914250e-02 -9.715167e-02 -7.878887e-02 -1.816554e-01</span>
-<span class="co">#&gt;  [56]  1.638632e-02 -6.876896e-02  8.938767e-02 -1.150496e-01  8.609830e-03</span>
-<span class="co">#&gt;  [61]  4.980474e-02 -9.960018e-02 -3.422476e-02  8.448444e-02  1.293030e-01</span>
-<span class="co">#&gt;  [66] -1.649475e-02  6.248177e-03  4.700666e-02 -2.488509e-01 -6.460611e-05</span>
-<span class="co">#&gt;  [71] -2.214669e-02 -1.329873e-01  9.040430e-02  4.791909e-03 -2.783037e-01</span>
-<span class="co">#&gt;  [76] -8.538587e-02 -3.304669e-02 -2.847383e-01  1.839581e-01 -1.938583e-02</span>
-<span class="co">#&gt;  [81]  3.233929e-02  4.029856e-02 -6.918790e-02 -1.014708e-03 -9.988562e-02</span>
-<span class="co">#&gt;  [86] -1.317290e-01 -9.890616e-02  2.466686e-01 -6.207531e-03 -1.764087e-01</span>
-<span class="co">#&gt;  [91]  1.707351e-01 -1.687929e-01 -1.328589e-01 -6.093235e-02 -1.754662e-01</span>
-<span class="co">#&gt;  [96] -2.338969e-01  1.320461e-01 -1.115960e-01  1.446748e-01 -1.183246e-01</span>
+<span class="co">#&gt;   [1]  0.0535210331 -0.0445782486 -0.1808260002 -0.2706370270 -0.1956864934</span>
+<span class="co">#&gt;   [6]  0.0003961841 -0.2698677311 -0.1069611828 -0.1692296374 -0.0414541671</span>
+<span class="co">#&gt;  [11] -0.1330614861 -0.1335537100 -0.0716288170 -0.3466188178 -0.1954038612</span>
+<span class="co">#&gt;  [16] -0.1380338911 -0.2762838108 -0.4403148803 -0.0837752859 -0.1521879826</span>
+<span class="co">#&gt;  [21] -0.0984988541 -0.0580461299 -0.0761664853 -0.2405521390 -0.1011673393</span>
+<span class="co">#&gt;  [26] -0.1840311828 -0.0934035523 -0.1943279388 -0.1291978608 -0.1801809334</span>
+<span class="co">#&gt;  [31] -0.1395416298 -0.2048716404 -0.2282389872  0.0707937453 -0.1186976806</span>
+<span class="co">#&gt;  [36] -0.0644546464 -0.2001066393 -0.1778757776 -0.1905099454 -0.1207315056</span>
+<span class="co">#&gt;  [41] -0.0715950956  0.0308203412 -0.1725491029 -0.2103419250 -0.1634535238</span>
+<span class="co">#&gt;  [46] -0.1291025243 -0.1855568198 -0.3189861051 -0.1515291437 -0.2249422183</span>
+<span class="co">#&gt;  [51] -0.2863554550  0.0030246856 -0.1145319260 -0.0454919358 -0.1336617723</span>
+<span class="co">#&gt;  [56] -0.2003997905 -0.2074136140 -0.2340841953 -0.1678634267 -0.2333402580</span>
+<span class="co">#&gt;  [61] -0.1300684096 -0.1003172085 -0.2101523959 -0.1085126652 -0.2102914856</span>
+<span class="co">#&gt;  [66] -0.1592195554 -0.3181632692 -0.3288117249 -0.2192948044  0.0612024430</span>
+<span class="co">#&gt;  [71] -0.3152578643 -0.1764422609 -0.1537623782 -0.1715399599 -0.0916456213</span>
+<span class="co">#&gt;  [76] -0.2445000269 -0.1059664988 -0.1018521886 -0.1298569119 -0.0356694863</span>
+<span class="co">#&gt;  [81]  0.0635577489 -0.3347022506 -0.0211195762  0.0496826784 -0.2037432404</span>
+<span class="co">#&gt;  [86] -0.1702744230 -0.0943830473 -0.0661391269 -0.1575385720  0.0263835947</span>
+<span class="co">#&gt;  [91] -0.2198157836 -0.2059667758 -0.0985958147 -0.2046630786 -0.1650725710</span>
+<span class="co">#&gt;  [96] -0.1681005203 -0.1613846927 -0.0691065063 -0.2823690812 -0.0816550486</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "Rp":</span>
-<span class="co">#&gt;   [1]  0.11666415  0.45384636  0.71163955 -4.64957298 -1.01498923</span>
-<span class="co">#&gt;   [6]  2.19128591  1.38667657  0.08908768  0.49587099 -2.33465475</span>
-<span class="co">#&gt;  [11] -6.07406103 -0.66627726  0.79769360  1.93037075  3.61533265</span>
-<span class="co">#&gt;  [16] -6.73201285 -0.04356657  1.83743748 -1.55040483 -1.55841597</span>
-<span class="co">#&gt;  [21]  2.56338348  3.17087023  3.04421514 -1.89627683  1.74446052</span>
-<span class="co">#&gt;  [26]  3.28702400  3.58332407  1.18884209  1.88778536 -0.41247704</span>
-<span class="co">#&gt;  [31] -0.70800637 -0.42169159  0.74079043 -1.08015905 -0.41365593</span>
-<span class="co">#&gt;  [36]  0.35537945  4.37025983 -1.30307005  5.90051088 -1.56944002</span>
-<span class="co">#&gt;  [41]  2.48450884  1.74620678 -1.93976511 -0.23961602 -0.45519402</span>
-<span class="co">#&gt;  [46]  0.27440005  1.33324172 -0.95502597  1.32571474 -1.80891582</span>
-<span class="co">#&gt;  [51]  2.00231235 -1.42759825 -3.52522676  0.48982464 -1.90325418</span>
-<span class="co">#&gt;  [56] -3.54435417  0.20289784 -2.13781340 -2.96276887  0.26017953</span>
-<span class="co">#&gt;  [61] -2.39970290  1.03719203  0.97484101  2.38213627  0.88136376</span>
-<span class="co">#&gt;  [66] -2.35530468  0.69178516  0.70571829 -1.64909775 -0.31471850</span>
-<span class="co">#&gt;  [71]  0.93053266 -0.98251605 -3.68079697 -1.31642128  1.50993283</span>
-<span class="co">#&gt;  [76]  3.09198321 -1.53295572  3.56799366  1.93007964  1.79800129</span>
-<span class="co">#&gt;  [81] -0.91558430 -0.46604516 -4.15433406  0.18309596 -2.11547942</span>
-<span class="co">#&gt;  [86]  0.76329681 -0.33111010  0.32306779 -0.79185885 -1.13554729</span>
-<span class="co">#&gt;  [91] -1.03704755  3.02980934  1.33332201 -2.96897232 -0.99470777</span>
-<span class="co">#&gt;  [96] -0.54527211 -0.31926449  2.72297743 -0.56119024  0.45702565</span>
+<span class="co">#&gt;   [1] -2.05582161  2.05536677 -2.24739730 -0.45937663 -1.22127634</span>
+<span class="co">#&gt;   [6]  0.14832682  0.03420736  0.95265955 -0.66880491 -4.58189596</span>
+<span class="co">#&gt;  [11] -0.54096193  2.05578238  3.23520432 -0.37094203  0.92793808</span>
+<span class="co">#&gt;  [16] -1.33088148  2.74085175 -3.31660414 -1.67751346  0.97351795</span>
+<span class="co">#&gt;  [21]  0.37270468  2.19080530 -2.21883177 -2.96870488  1.36656121</span>
+<span class="co">#&gt;  [26]  3.72763155 -0.67984031 -0.99643312  1.14764906  1.95863841</span>
+<span class="co">#&gt;  [31] -1.36405735 -0.96575222 -2.39211643 -1.93125914 -0.19583564</span>
+<span class="co">#&gt;  [36]  1.28634929  1.31982451  0.01113163 -0.81103258 -0.11680924</span>
+<span class="co">#&gt;  [41] -1.09820134  1.59601808  1.57186910 -2.49535258  0.39433504</span>
+<span class="co">#&gt;  [46] -2.47518280  3.18729772  0.70204046 -0.71728436 -2.62665242</span>
+<span class="co">#&gt;  [51] -0.31683180  2.90331112  1.78675876 -1.39612370  0.51202880</span>
+<span class="co">#&gt;  [56] -1.83386563  1.35004396 -1.24307225  4.16713584 -0.13975872</span>
+<span class="co">#&gt;  [61]  0.32325828 -0.38075899  0.17497283 -1.53916452  2.36291025</span>
+<span class="co">#&gt;  [66] -1.81935268  1.66340385 -0.42359362 -1.73032825  0.66093090</span>
+<span class="co">#&gt;  [71]  2.57957532 -1.43455895  0.83105671  1.92136302 -1.43156979</span>
+<span class="co">#&gt;  [76]  0.67630975 -1.81927693  2.04815852  1.35037142 -0.08556790</span>
+<span class="co">#&gt;  [81] -0.76660057 -2.22167364 -0.96472831  1.91421755 -0.27015105</span>
+<span class="co">#&gt;  [86]  1.57962333 -0.37193983 -1.31778539  2.85774292 -0.40941551</span>
+<span class="co">#&gt;  [91]  0.52600057  0.55682849 -0.85191375 -0.87482982 -0.17477583</span>
+<span class="co">#&gt;  [96]  3.04824344  0.31193383 -2.58001249  1.11097393 -2.25139253</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "r2":</span>
-<span class="co">#&gt; [1] 0.002953733</span>
+<span class="co">#&gt; [1] 0.003114144</span>
 <span class="co"># data example taken from FAO Book</span>
 t0 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">3.2</span>,<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">2.6</span>,<span class="fl">4.4</span>,<span class="fl">5.2</span>,<span class="fl">2.7</span>,<span class="fl">1.2</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>) <span class="co"># temperature 2 hours after sunset</span>
 td &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="fl">4.2</span>,<span class="op">-</span><span class="fl">8.8</span>,<span class="op">-</span><span class="fl">6.5</span>,<span class="op">-</span><span class="fl">6.2</span>,<span class="op">-</span><span class="fl">6.1</span>,<span class="fl">2.6</span>,<span class="op">-</span><span class="fl">0.7</span>,<span class="op">-</span><span class="fl">1.7</span>,<span class="op">-</span><span class="fl">1.2</span>,<span class="fl">0.1</span>) <span class="co"># dew point 2 hours after sunset</span>
@@ -273,9 +280,9 @@ var &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getTren
 <span class="co">#&gt;   c.quosures     rlang</span>
 <span class="co">#&gt;   print.quosures rlang</span>
 <span class="co"># just plotting points</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(var,<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_point">geom_point</a></span>(<span class="dt">color=</span><span class="st">"blue"</span>)
+<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(var,<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">color=</span><span class="st">"blue"</span>)
 <span class="co"># add trend line</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/ggplot">ggplot</a></span>(var,<span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/aes">aes</a></span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_point">geom_point</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/geom_smooth">geom_smooth</a></span>(<span class="dt">color=</span><span class="st">"red"</span>)
+<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(var,<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(<span class="dt">color=</span><span class="st">"red"</span>)
 <span class="co">#&gt; `geom_smooth()` using method = 'loess' and formula 'y ~ x'</span></code></pre></div>
 <p><img src="Introduction_files/figure-html/unnamed-chunk-5-1.png" width="700"><img src="Introduction_files/figure-html/unnamed-chunk-5-2.png" width="700"><img src="Introduction_files/figure-html/unnamed-chunk-5-3.png" width="700"></p>
 </div>
