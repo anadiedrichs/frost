@@ -26,8 +26,3 @@ To install the package from the GitHub repo, run
 
 You can have more information about how to use this package in the [Introduction vignette](vignettes/Introduction.Rmd)
 
-### How to cite this package
-
-`> citation("frost")`
-
-
