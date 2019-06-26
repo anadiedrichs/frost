@@ -1,16 +1,12 @@
 citHeader("To cite frost in publications use:")
 
 citEntry(
-  entry    = "Software",
+  entry    = "Manual",
   title    = "frost: Prediction of Minimum Temperature for Frost Forecasting in Agriculture",
   author   = personList(as.person("Ana Laura Diedrichs"),
                    as.person("Facundo Bromberg"),
                     as.person("Diego Dujovne")),
-  journal  = ,
   year     = 2019,
-  volume   = ,
-  number   = ,
-  pages    = ,
   url      = "http://doi.org/10.5281/zenodo.2573195",
   textVersion = paste("Diedrichs, Bromberg, Dujovne (2019):",
   "frost: Prediction of Minimum Temperature for Frost Forecasting in Agriculture",
