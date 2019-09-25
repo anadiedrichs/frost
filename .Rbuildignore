@@ -3,3 +3,6 @@
 ^\.travis\.yml$
 CONTRIBUTING.md
 code-of-conduct.md
+^codecov\.yml$
+docs/*
+README.Rmd
