@@ -24,7 +24,7 @@ Suggests:
     knitr,
     rmarkdown,
     ggplot2,
-    testthat,
+    testthat (>= 2.1.0),
     covr
 Imports: methods
 VignetteBuilder: knitr

@@ -6,3 +6,6 @@ code-of-conduct.md
 ^codecov\.yml$
 docs/*
 README.Rmd
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
