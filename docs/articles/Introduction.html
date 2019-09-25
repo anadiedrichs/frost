@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>frost package • frost</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="frost package">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -61,7 +62,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/anadiedrichs/frost">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -74,13 +75,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>frost package</h1>
                         <h4 class="author">Ana Laura Diedrichs</h4>
             
-            <h4 class="date">2019-06-26</h4>
+            <h4 class="date">2019-09-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/anadiedrichs/frost/blob/master/vignettes/Introduction.Rmd"><code>vignettes/Introduction.Rmd</code></a></small>
       <div class="hidden name"><code>Introduction.Rmd</code></div>
@@ -102,12 +104,12 @@
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
 <p>If you don’t have package <em>devtools</em> installed, run the following commands.</p>
-<p><code><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages("devtools")</a></code></p>
-<p><code><a href="https://www.rdocumentation.org/packages/base/topics/library">library(devtools)</a></code></p>
+<p><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("devtools")</a></code></p>
+<p><code><a href="https://rdrr.io/r/base/library.html">library(devtools)</a></code></p>
 <p>To install the package from the GitHub repo, run</p>
 <p><code>install_github("anadiedrichs/frost")</code></p>
 <p>Load the library to start using the functions</p>
-<p><code><a href="https://www.rdocumentation.org/packages/base/topics/library">library(frost)</a></code></p>
+<p><code><a href="https://rdrr.io/r/base/library.html">library(frost)</a></code></p>
 <p><img src="logo-frost.png" width="250"></p>
 </div>
 </div>
@@ -115,7 +117,7 @@
 <h2 class="hasAnchor">
 <a href="#dew-point-estimation" class="anchor"></a>Dew point estimation</h2>
 <p>Given that several methods used dew point as an input variable, this package provides methods to estimate the dew point (in Celsius degree) given ambient temperature and relative humidity.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(frost)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(frost)
 
 temp &lt;-<span class="st"> </span><span class="dv">25</span>
 rh &lt;-<span class="st"> </span><span class="dv">54</span>
@@ -131,12 +133,12 @@ rh &lt;-<span class="st"> </span><span class="dv">54</span>
 <h2 class="hasAnchor">
 <a href="#temperature-conversions" class="anchor"></a>Temperature conversions</h2>
 <p>Most of the predictive methods use temperature in degree Celsius, so maybe you want to convert your temperature values to this unit. You can use the method <code>convert.temperature</code> to achieve this, and convert from/to Kelvin (K), Fahrenheit (F) or Celcius (C).</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(frost)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(frost)
 
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(frost)
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(frost)
 <span class="kw"><a href="../reference/convert.temperature.html">convert.temperature</a></span>(<span class="dt">from=</span><span class="st">"K"</span>, <span class="dt">to=</span><span class="st">"C"</span>,<span class="dv">350</span>)
 <span class="co">#&gt; [1] 76.85</span>
-cels &lt;-<span class="st"> </span><span class="kw"><a href="../reference/convert.temperature.html">convert.temperature</a></span>(<span class="dt">from=</span><span class="st">"F"</span>,<span class="dt">to=</span><span class="st">"C"</span>,<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">120</span>,<span class="dv">80</span>,<span class="dv">134</span>,<span class="dv">110</span>))
+cels &lt;-<span class="st"> </span><span class="kw"><a href="../reference/convert.temperature.html">convert.temperature</a></span>(<span class="dt">from=</span><span class="st">"F"</span>,<span class="dt">to=</span><span class="st">"C"</span>,<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">120</span>,<span class="dv">80</span>,<span class="dv">134</span>,<span class="dv">110</span>))
 k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/convert.temperature.html">convert.temperature</a></span>(<span class="dt">from=</span><span class="st">"C"</span>, <span class="dt">to=</span><span class="st">"K"</span>,cels)</code></pre></div>
 </div>
 <div id="prediction-of-minimum-temperature" class="section level2">
@@ -146,79 +148,79 @@ k &lt;-<span class="st"> </span><span class="kw"><a href="../reference/convert.t
 <h3 class="hasAnchor">
 <a href="#fao-approach" class="anchor"></a>FAO approach</h3>
 <p>The empirical formula for estimating the minimum temperature is <span class="math inline">\(T_{min} = a * T + b * T_{dew} + c\)</span>. For calculating the coefficientes <span class="math inline">\(a, b\)</span> and <span class="math inline">\(c\)</span> we call <code><a href="../reference/buildFAO.html">buildFAO(dw,temp,tmin)</a></code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(frost)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(frost)
 <span class="co"># We create random data</span>
-x1 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">100</span>,<span class="dt">mean=</span><span class="dv">2</span>,<span class="dt">sd=</span><span class="dv">5</span>)
-x2 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">100</span>,<span class="dt">mean=</span><span class="dv">1</span>,<span class="dt">sd=</span><span class="dv">3</span>)
-y &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/Normal">rnorm</a></span>(<span class="dv">100</span>,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">2</span>)
+x1 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="dv">100</span>,<span class="dt">mean=</span><span class="dv">2</span>,<span class="dt">sd=</span><span class="dv">5</span>)
+x2 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="dv">100</span>,<span class="dt">mean=</span><span class="dv">1</span>,<span class="dt">sd=</span><span class="dv">3</span>)
+y &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span>(<span class="dv">100</span>,<span class="dt">mean=</span><span class="dv">0</span>,<span class="dt">sd=</span><span class="dv">2</span>)
 <span class="kw"><a href="../reference/buildFAO.html">buildFAO</a></span>(<span class="dt">dw =</span> x2,<span class="dt">temp=</span>x1,<span class="dt">tmin=</span>y)
 <span class="co">#&gt; An object of class "FAOFrostModel"</span>
 <span class="co">#&gt; Slot "a":</span>
-<span class="co">#&gt; [1] 0.01037208</span>
+<span class="co">#&gt; [1] 0.02662973</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "b":</span>
-<span class="co">#&gt; [1] -0.03337787</span>
+<span class="co">#&gt; [1] -0.1001134</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "c":</span>
-<span class="co">#&gt; [1] -0.1428724</span>
+<span class="co">#&gt; [1] 0.2859272</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "Tp":</span>
-<span class="co">#&gt;   [1]  0.0535210331 -0.0445782486 -0.1808260002 -0.2706370270 -0.1956864934</span>
-<span class="co">#&gt;   [6]  0.0003961841 -0.2698677311 -0.1069611828 -0.1692296374 -0.0414541671</span>
-<span class="co">#&gt;  [11] -0.1330614861 -0.1335537100 -0.0716288170 -0.3466188178 -0.1954038612</span>
-<span class="co">#&gt;  [16] -0.1380338911 -0.2762838108 -0.4403148803 -0.0837752859 -0.1521879826</span>
-<span class="co">#&gt;  [21] -0.0984988541 -0.0580461299 -0.0761664853 -0.2405521390 -0.1011673393</span>
-<span class="co">#&gt;  [26] -0.1840311828 -0.0934035523 -0.1943279388 -0.1291978608 -0.1801809334</span>
-<span class="co">#&gt;  [31] -0.1395416298 -0.2048716404 -0.2282389872  0.0707937453 -0.1186976806</span>
-<span class="co">#&gt;  [36] -0.0644546464 -0.2001066393 -0.1778757776 -0.1905099454 -0.1207315056</span>
-<span class="co">#&gt;  [41] -0.0715950956  0.0308203412 -0.1725491029 -0.2103419250 -0.1634535238</span>
-<span class="co">#&gt;  [46] -0.1291025243 -0.1855568198 -0.3189861051 -0.1515291437 -0.2249422183</span>
-<span class="co">#&gt;  [51] -0.2863554550  0.0030246856 -0.1145319260 -0.0454919358 -0.1336617723</span>
-<span class="co">#&gt;  [56] -0.2003997905 -0.2074136140 -0.2340841953 -0.1678634267 -0.2333402580</span>
-<span class="co">#&gt;  [61] -0.1300684096 -0.1003172085 -0.2101523959 -0.1085126652 -0.2102914856</span>
-<span class="co">#&gt;  [66] -0.1592195554 -0.3181632692 -0.3288117249 -0.2192948044  0.0612024430</span>
-<span class="co">#&gt;  [71] -0.3152578643 -0.1764422609 -0.1537623782 -0.1715399599 -0.0916456213</span>
-<span class="co">#&gt;  [76] -0.2445000269 -0.1059664988 -0.1018521886 -0.1298569119 -0.0356694863</span>
-<span class="co">#&gt;  [81]  0.0635577489 -0.3347022506 -0.0211195762  0.0496826784 -0.2037432404</span>
-<span class="co">#&gt;  [86] -0.1702744230 -0.0943830473 -0.0661391269 -0.1575385720  0.0263835947</span>
-<span class="co">#&gt;  [91] -0.2198157836 -0.2059667758 -0.0985958147 -0.2046630786 -0.1650725710</span>
-<span class="co">#&gt;  [96] -0.1681005203 -0.1613846927 -0.0691065063 -0.2823690812 -0.0816550486</span>
+<span class="co">#&gt;   [1] -0.19020938 -0.14916901  0.40757180  0.49071066  0.27914252</span>
+<span class="co">#&gt;   [6]  0.49604312 -0.08044573  0.16027672  0.27977885  0.71202871</span>
+<span class="co">#&gt;  [11]  0.46274747  0.22830342 -0.31457067 -0.27405902  0.66182603</span>
+<span class="co">#&gt;  [16]  0.38829750  0.55421424  0.02319859 -0.58294347  0.61148867</span>
+<span class="co">#&gt;  [21] -0.15921080  0.26063683 -0.11551826 -0.02925595  0.30068791</span>
+<span class="co">#&gt;  [26]  0.66188744  0.49282661  0.28798678  0.33120183  0.77613292</span>
+<span class="co">#&gt;  [31]  0.21397742 -0.10810433 -0.10330527  0.35999429  0.70819217</span>
+<span class="co">#&gt;  [36]  0.34716422  0.29387814  0.69278205 -0.22765775  0.22750648</span>
+<span class="co">#&gt;  [41] -0.19373204  0.68801896  0.07833059  1.21053735 -0.05629027</span>
+<span class="co">#&gt;  [46]  0.45526647  0.12058019  0.10723638  0.51976959  0.17416007</span>
+<span class="co">#&gt;  [51] -0.09771255  0.54861018 -0.09060920 -0.22776314  0.77931587</span>
+<span class="co">#&gt;  [56]  0.51523271  0.10917970  0.50614842  0.75902563  0.56077785</span>
+<span class="co">#&gt;  [61] -0.22504757  0.43196966 -0.39424423 -0.05942793  0.06556593</span>
+<span class="co">#&gt;  [66]  0.09596800  0.24211122  0.27628319  0.18245733  0.10389392</span>
+<span class="co">#&gt;  [71] -0.40264655  0.20780255  0.59231733  0.61928866 -0.36181498</span>
+<span class="co">#&gt;  [76] -0.19033505  0.45740967  0.02260116 -0.15806010  0.38656030</span>
+<span class="co">#&gt;  [81]  0.03804272  0.42260677  0.27938556  0.43916613  0.20939097</span>
+<span class="co">#&gt;  [86] -0.01263477 -0.02554684  0.09430429  0.55553881  0.06005227</span>
+<span class="co">#&gt;  [91]  0.29310002  0.97589069  0.06748657 -0.48822982  0.85074701</span>
+<span class="co">#&gt;  [96]  0.05467774  0.58944187  0.32047287  0.14556136  0.39005134</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "Rp":</span>
-<span class="co">#&gt;   [1] -2.05582161  2.05536677 -2.24739730 -0.45937663 -1.22127634</span>
-<span class="co">#&gt;   [6]  0.14832682  0.03420736  0.95265955 -0.66880491 -4.58189596</span>
-<span class="co">#&gt;  [11] -0.54096193  2.05578238  3.23520432 -0.37094203  0.92793808</span>
-<span class="co">#&gt;  [16] -1.33088148  2.74085175 -3.31660414 -1.67751346  0.97351795</span>
-<span class="co">#&gt;  [21]  0.37270468  2.19080530 -2.21883177 -2.96870488  1.36656121</span>
-<span class="co">#&gt;  [26]  3.72763155 -0.67984031 -0.99643312  1.14764906  1.95863841</span>
-<span class="co">#&gt;  [31] -1.36405735 -0.96575222 -2.39211643 -1.93125914 -0.19583564</span>
-<span class="co">#&gt;  [36]  1.28634929  1.31982451  0.01113163 -0.81103258 -0.11680924</span>
-<span class="co">#&gt;  [41] -1.09820134  1.59601808  1.57186910 -2.49535258  0.39433504</span>
-<span class="co">#&gt;  [46] -2.47518280  3.18729772  0.70204046 -0.71728436 -2.62665242</span>
-<span class="co">#&gt;  [51] -0.31683180  2.90331112  1.78675876 -1.39612370  0.51202880</span>
-<span class="co">#&gt;  [56] -1.83386563  1.35004396 -1.24307225  4.16713584 -0.13975872</span>
-<span class="co">#&gt;  [61]  0.32325828 -0.38075899  0.17497283 -1.53916452  2.36291025</span>
-<span class="co">#&gt;  [66] -1.81935268  1.66340385 -0.42359362 -1.73032825  0.66093090</span>
-<span class="co">#&gt;  [71]  2.57957532 -1.43455895  0.83105671  1.92136302 -1.43156979</span>
-<span class="co">#&gt;  [76]  0.67630975 -1.81927693  2.04815852  1.35037142 -0.08556790</span>
-<span class="co">#&gt;  [81] -0.76660057 -2.22167364 -0.96472831  1.91421755 -0.27015105</span>
-<span class="co">#&gt;  [86]  1.57962333 -0.37193983 -1.31778539  2.85774292 -0.40941551</span>
-<span class="co">#&gt;  [91]  0.52600057  0.55682849 -0.85191375 -0.87482982 -0.17477583</span>
-<span class="co">#&gt;  [96]  3.04824344  0.31193383 -2.58001249  1.11097393 -2.25139253</span>
+<span class="co">#&gt;   [1] -0.903629661 -2.684611105  0.877945626 -0.523096891  2.800146952</span>
+<span class="co">#&gt;   [6] -0.349022571  2.096034728 -1.435532404  3.267057410  2.547108856</span>
+<span class="co">#&gt;  [11]  3.343064038 -3.742740069 -0.465013273  0.851538623  3.499767638</span>
+<span class="co">#&gt;  [16]  0.630689893  0.024408654  1.783386286  0.955599116  0.203131131</span>
+<span class="co">#&gt;  [21] -3.523837513 -2.856204637 -0.496685427 -0.395867944  1.119485687</span>
+<span class="co">#&gt;  [26] -2.937709548 -1.886723577 -1.011796604 -3.123540814 -0.959546178</span>
+<span class="co">#&gt;  [31]  2.073713120 -0.961276626 -0.149590936 -0.268457190  1.236826376</span>
+<span class="co">#&gt;  [36] -0.292071665  0.350929133 -0.830983336 -1.796211027 -2.479159368</span>
+<span class="co">#&gt;  [41] -1.284897142 -3.054352969  2.710877769  1.443784182 -0.696571125</span>
+<span class="co">#&gt;  [46] -0.567003780  3.198489425  1.944494300  3.171406752  2.799183339</span>
+<span class="co">#&gt;  [51]  4.018584059 -1.733178644 -0.873186871  1.772653263 -1.647491448</span>
+<span class="co">#&gt;  [56] -0.254354311  0.494441817  1.758020531  1.546550314 -0.283121958</span>
+<span class="co">#&gt;  [61] -1.256204457 -0.496931036  0.367538218 -0.473028080 -0.335898689</span>
+<span class="co">#&gt;  [66] -0.013605756 -0.638983884  2.056330252 -1.454627908 -0.488639613</span>
+<span class="co">#&gt;  [71]  2.216713698  2.073038127 -1.563597230 -2.342994203 -1.475021591</span>
+<span class="co">#&gt;  [76]  0.402822671  2.651548432 -3.933956341  2.295901233 -1.615986190</span>
+<span class="co">#&gt;  [81] -0.381629764  1.690923784 -0.998466342 -1.206347266  1.276158526</span>
+<span class="co">#&gt;  [86] -0.891237424  2.733355064  1.100270368 -2.755826037  0.136822026</span>
+<span class="co">#&gt;  [91]  2.070907362 -2.366407455  0.435593114 -4.242948116  1.006711211</span>
+<span class="co">#&gt;  [96] -0.120444431 -2.970409779  0.710348111  0.006960943  0.739396046</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Slot "r2":</span>
-<span class="co">#&gt; [1] 0.003114144</span>
+<span class="co">#&gt; [1] 0.03217716</span>
 <span class="co"># data example taken from FAO Book</span>
-t0 &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">3.2</span>,<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">2.6</span>,<span class="fl">4.4</span>,<span class="fl">5.2</span>,<span class="fl">2.7</span>,<span class="fl">1.2</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>) <span class="co"># temperature 2 hours after sunset</span>
-td &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="fl">4.2</span>,<span class="op">-</span><span class="fl">8.8</span>,<span class="op">-</span><span class="fl">6.5</span>,<span class="op">-</span><span class="fl">6.2</span>,<span class="op">-</span><span class="fl">6.1</span>,<span class="fl">2.6</span>,<span class="op">-</span><span class="fl">0.7</span>,<span class="op">-</span><span class="fl">1.7</span>,<span class="op">-</span><span class="fl">1.2</span>,<span class="fl">0.1</span>) <span class="co"># dew point 2 hours after sunset</span>
-tn &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="fl">3.1</span>,<span class="op">-</span><span class="dv">5</span>,<span class="op">-</span><span class="fl">6.3</span>,<span class="op">-</span><span class="fl">5.4</span>,<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="fl">2.5</span>,<span class="op">-</span><span class="fl">4.8</span>,<span class="op">-</span><span class="dv">5</span>,<span class="op">-</span><span class="fl">4.4</span>,<span class="op">-</span><span class="fl">3.3</span>)
+t0 &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3.2</span>,<span class="fl">0.8</span>,<span class="fl">0.2</span>,<span class="fl">2.6</span>,<span class="fl">4.4</span>,<span class="fl">5.2</span>,<span class="fl">2.7</span>,<span class="fl">1.2</span>,<span class="fl">4.5</span>,<span class="fl">5.6</span>) <span class="co"># temperature 2 hours after sunset</span>
+td &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">4.2</span>,<span class="op">-</span><span class="fl">8.8</span>,<span class="op">-</span><span class="fl">6.5</span>,<span class="op">-</span><span class="fl">6.2</span>,<span class="op">-</span><span class="fl">6.1</span>,<span class="fl">2.6</span>,<span class="op">-</span><span class="fl">0.7</span>,<span class="op">-</span><span class="fl">1.7</span>,<span class="op">-</span><span class="fl">1.2</span>,<span class="fl">0.1</span>) <span class="co"># dew point 2 hours after sunset</span>
+tn &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">3.1</span>,<span class="op">-</span><span class="dv">5</span>,<span class="op">-</span><span class="fl">6.3</span>,<span class="op">-</span><span class="fl">5.4</span>,<span class="op">-</span><span class="dv">4</span>,<span class="op">-</span><span class="fl">2.5</span>,<span class="op">-</span><span class="fl">4.8</span>,<span class="op">-</span><span class="dv">5</span>,<span class="op">-</span><span class="fl">4.4</span>,<span class="op">-</span><span class="fl">3.3</span>)
 out &lt;-<span class="st"> </span><span class="kw"><a href="../reference/buildFAO.html">buildFAO</a></span>(<span class="dt">dw =</span> td,<span class="dt">temp=</span>t0,<span class="dt">tmin=</span>tn)
 
 <span class="co"># We use the results of the model to have the coefficients for the formula</span>
 current_temp &lt;-<span class="st"> </span><span class="dv">10</span>
 current_dw &lt;-<span class="st"> </span><span class="dv">2</span>
 ptmin &lt;-<span class="st"> </span><span class="kw"><a href="../reference/predFAO.html">predFAO</a></span>(out,current_temp,current_dw)
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/cat">cat</a></span>(<span class="st">"The predicte minimum temperature is "</span>,ptmin,<span class="st">" °C"</span>)
+<span class="kw"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="st">"The predicte minimum temperature is "</span>,ptmin,<span class="st">" °C"</span>)
 <span class="co">#&gt; The predicte minimum temperature is  -0.7409219  °C</span>
 
 <span class="co"># We plot the temperature trend, we have 12 hours until sunrise</span>
@@ -236,7 +238,7 @@ ptmin &lt;-<span class="st"> </span><span class="kw"><a href="../reference/predF
 #&gt; 9  11 -0.1897332
 #&gt; 10 12 -0.7409219</code></pre>
 <p>We can plot an estimated temperature trend during a frost night, calculated using the FAO recomendation.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(frost)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(frost)
 
 <span class="kw"><a href="../reference/getTrend.html">getTrend</a></span>(<span class="dt">Tmin =</span> <span class="fl">22.2</span>,<span class="dt">t2 =</span> <span class="fl">33.7</span>,<span class="dt">n =</span> <span class="dv">15</span>) <span class="co"># in °F degress</span>
 <span class="co">#&gt;     x        y</span>
@@ -253,7 +255,7 @@ ptmin &lt;-<span class="st"> </span><span class="kw"><a href="../reference/predF
 <span class="co">#&gt; 11 13 23.12154</span>
 <span class="co">#&gt; 12 14 22.65116</span>
 <span class="co">#&gt; 13 15 22.20000</span>
-<span class="kw"><a href="../reference/getTrend.html">getTrend</a></span>(<span class="dt">Tmin =</span> <span class="fl">-5.45</span>,<span class="dt">t2 =</span> <span class="fl">0.95</span>,<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>) <span class="co"># in °C degress</span>
+<span class="kw"><a href="../reference/getTrend.html">getTrend</a></span>(<span class="dt">Tmin =</span> <span class="op">-</span><span class="fl">5.45</span>,<span class="dt">t2 =</span> <span class="fl">0.95</span>,<span class="dt">n =</span> <span class="dv">15</span>, <span class="dt">plot=</span><span class="ot">TRUE</span>) <span class="co"># in °C degress</span>
 <span class="co">#&gt;     x          y</span>
 <span class="co">#&gt; 1   3 -0.8250406</span>
 <span class="co">#&gt; 2   4 -1.5602865</span>
@@ -270,15 +272,10 @@ ptmin &lt;-<span class="st"> </span><span class="kw"><a href="../reference/predF
 <span class="co">#&gt; 13 15 -5.4500000</span></code></pre></div>
 <p><img src="Introduction_files/figure-html/unnamed-chunk-4-1.png" width="700"><img src="Introduction_files/figure-html/unnamed-chunk-4-2.png" width="700"></p>
 <p>We can use the output of <code>plotTrend</code> to plot using other libraries such as ggplot2.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(frost)
-var &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getTrend.html">getTrend</a></span>(<span class="dt">Tmin =</span> <span class="fl">-5.45</span>,<span class="dt">t2 =</span> <span class="fl">0.95</span>,<span class="dt">n =</span> <span class="dv">15</span>) <span class="co"># in °C degress</span>
-<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">require</a></span>(ggplot2)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(frost)
+var &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getTrend.html">getTrend</a></span>(<span class="dt">Tmin =</span> <span class="op">-</span><span class="fl">5.45</span>,<span class="dt">t2 =</span> <span class="fl">0.95</span>,<span class="dt">n =</span> <span class="dv">15</span>) <span class="co"># in °C degress</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span>(ggplot2)
 <span class="co">#&gt; Loading required package: ggplot2</span>
-<span class="co">#&gt; Registered S3 methods overwritten by 'ggplot2':</span>
-<span class="co">#&gt;   method         from </span>
-<span class="co">#&gt;   [.quosures     rlang</span>
-<span class="co">#&gt;   c.quosures     rlang</span>
-<span class="co">#&gt;   print.quosures rlang</span>
 <span class="co"># just plotting points</span>
 <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(var,<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x=</span>x,<span class="dt">y=</span>y)) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">color=</span><span class="st">"blue"</span>)
 <span class="co"># add trend line</span>
@@ -291,11 +288,11 @@ var &lt;-<span class="st"> </span><span class="kw"><a href="../reference/getTren
 <a href="#empirical-formula-used-in-mendoza" class="anchor"></a>Empirical formula used in Mendoza</h3>
 <p>The empirical formula for estimating the minimum temperature is <span class="math inline">\(T_{min} = \frac{T_{max} + T_{dew}}{2} - K\)</span>. For calculating K, we call <code>buildMdz</code> function. Then for prediction we use <code>predMdz</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># just an example</span>
-dw &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>)
-tempMax &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">25</span>,<span class="dv">29</span>)
-tmin &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">10</span>)
+dw &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">8</span>)
+tempMax &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">25</span>,<span class="dv">29</span>)
+tmin &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="dv">1</span>,<span class="op">-</span><span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">10</span>)
 out &lt;-<span class="st"> </span><span class="kw"><a href="../reference/buildMdz.html">buildMdz</a></span>(dw,tempMax,tmin)
-<span class="kw"><a href="../reference/predMdz.html">predMdz</a></span>(<span class="dt">dw =</span> <span class="dv">-3</span>, <span class="dt">tempMax =</span> <span class="dv">15</span>, out)
+<span class="kw"><a href="../reference/predMdz.html">predMdz</a></span>(<span class="dt">dw =</span> <span class="op">-</span><span class="dv">3</span>, <span class="dt">tempMax =</span> <span class="dv">15</span>, out)
 <span class="co">#&gt; [1] 15.3</span></code></pre></div>
 </div>
 </div>
@@ -317,17 +314,20 @@ out &lt;-<span class="st"> </span><span class="kw"><a href="../reference/buildMd
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Ana Laura Diedrichs.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
