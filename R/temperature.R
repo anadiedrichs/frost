@@ -14,7 +14,7 @@
 #' cels <- convert.temperature(from="F",to="C",c(120,80,134,110))
 #' k <- convert.temperature(from="C", to="K",cels)
 #'
-convert.temperature <- function(from="F",to="C",values)
+convert.temperature <- function(from="F",to="C",values=NULL)
 {
   units <- c("F","C","K")
 

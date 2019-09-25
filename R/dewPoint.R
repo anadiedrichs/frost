@@ -87,7 +87,7 @@ calcDewPoint <- function(RH,temp,mode = "A")
     else if(mode == "B")return(calcDewPoint.B(RH,temp))
     else if(mode =="C") return(calcDewPoint.C(RH,temp))
 
-  }else return(NULL)
+  }#else return(NULL)
 }
 
 ######################################################################################

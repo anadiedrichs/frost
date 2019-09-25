@@ -37,3 +37,11 @@ test_that("Testing temperature conversion from Kelvin to Fahrenheit", {
   expect_equal(convert.temperature(from = "K",to="F",268.15),23, tolerance = .01 )
   expect_equal(convert.temperature(from = "K",to="F",318.15),113, tolerance = .01 )
 })
+
+test_that("Testing NA parameters values",
+{
+  expect_error(convert.temperature(from=NA,to="F",1:10))
+  expect_error(convert.temperature(from="K",to="algo",1:10))
+  expect_error(convert.temperature(from="K",to="C",c(NA,NA,1,2,3)))
+  expect_error(convert.temperature(from="K",to="C",NULL))
+})
