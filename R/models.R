@@ -75,7 +75,7 @@ buildFAO <- function(dw,temp,tmin)
     # return(list(a = a, b= NULL, c= w, Tp = Tp, Rp = Rp, r2 = r2))
     return(model)
 
-  }else(return(NULL))
+  }#else(return(NULL))
 #https://www.statmethods.net/stats/regression.html
 }
 
@@ -136,7 +136,7 @@ buildFAOTemp <- function(temp,tmin)
     model <- new("FAOFrostModel",a = a, b= b, c= c, Tp = Tp, Rp = Rp, r2 = r2)
    # return(list(a = a, b= NULL, c= w, Tp = Tp, Rp = Rp, r2 = r2))
    return(model)
-  }else(return(NULL))
+  }#else(return(NULL))
   #https://www.statmethods.net/stats/regression.html
 }
 
@@ -225,7 +225,7 @@ getTrend <- function(Tmin, t2, n, plot=FALSE)
     plot(x = c(3:n), y = v, type = "l", xlab= "Hours after sunset", ylab= "Temperature",col="red")
     return(data.frame(x= c(3:n),y=v))
 
-  }else stop("Check valid values for the function arguments")
+  }#else stop("Check valid values for the function arguments")
 }
 #'
 #'@title Empiric equation for minimum temperature used in Mendoza
@@ -254,23 +254,6 @@ getTrend <- function(Tmin, t2, n, plot=FALSE)
 #' buildMdz(dw,tempMax,tmin)
 
 
-# buildMdz <- function(dw,tempMax,tmin)
-# {
-#   k = vector(mode = "logical", length = length(dw))
-#
-#   #TODO check, como calcular constante K, el approach
-#   # k <- ((tempMax + dw)/2)-tmin
-#   dd <- as.data.frame(cbind(dw,tempMax,tmin))
-#   model <- lm(tmin~.,as.data.frame(dd))
-#   # TODO check that model is ok or not null before return
-#   k = tmin - ((tempMax+dw)/2)
-#   m = (tempMax + dw)/2
-#   dd2 = data.frame(tmin,dw=(0.5*dw),tempMax=(0.5*tempMax))
-#   lm2 = lm(tmin~dw+tempMax, dd2)
-#   return(list(model=model,k = mean(k), kmedian = median(k), kvector=k,lm2 = lm2))
-#
-# }
-
 buildMdz <- function(dw,tempMax,tmin)
 {
   k = vector(mode = "logical", length = length(dw))
@@ -287,8 +270,6 @@ buildMdz <- function(dw,tempMax,tmin)
     model <- new("MdzFrostModel",k = mean(k), kvector=k)
 
   }
-  # return(list(model=model,k = model$coefficients[[1]]))
-
   return(model=model)
 
 }
@@ -321,9 +302,12 @@ predMdz <- function(dw,tempMax,model)
      !is.null(model) && !is.na(model@k))
   {
     tmin <- ((tempMax + dw)/2) - model@k
-  }else{stop("Check the arguments of predMdz, they shouldn't be null, NA or empty")}
 
-  return(tmin)
+    return(tmin)
+
+  }#else{stop("Check the arguments of predMdz, they shouldn't be null, NA or empty")}
+
+
 }
 
 
