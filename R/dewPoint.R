@@ -1,3 +1,11 @@
+calculation <-function(RH,temp)
+{
+  dw <- 0
+  if(RH < 50){ dw <- (0.198 + 0.0017*temp) * RH + (0.84*temp) - 19.2}
+  else{ dw <- temp - ( ((100-RH)/5) * (temp/300)^2 ) - (0.00135 * (RH - 84)^2 )+ 0.35}
+  return(dw)
+}
+
 ###############################################################################33
 #' @title  Calculates dew point from ambient temperature and relative humidity.
 #'
@@ -38,10 +46,15 @@ calcDewPoint.A <- function(RH,temp) {return((RH/100 )^(1/8) * (110+temp) -110)}
 #'
 calcDewPoint.B <- function(RH,temp) {
   dw <- 0
-  if(RH < 50){ dw <- (0.198 + 0.0017*temp) * RH + (0.84*temp) - 19.2}
-  else{ dw <- temp - ( ((100-RH)/5) * (temp/300)^2 ) - (0.00135 * (RH - 84)^2 )+ 0.35}
+  dw <- mapply(calculation, RH, temp )
+
+ # if(RH < 50){ dw <- (0.198 + 0.0017*temp) * RH + (0.84*temp) - 19.2}
+#  else{ dw <- temp - ( ((100-RH)/5) * (temp/300)^2 ) - (0.00135 * (RH - 84)^2 )+ 0.35}
   return(dw)
+
 }
+
+
 #' @title Calculates dew point from ambient temperature and relative humidity.
 #' @description
 #' Calculation of dew point using the approach given in the following paper:

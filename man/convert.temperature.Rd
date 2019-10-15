@@ -4,7 +4,7 @@
 \alias{convert.temperature}
 \title{Temperature conversion}
 \usage{
-convert.temperature(from = "F", to = "C", values)
+convert.temperature(from = "F", to = "C", values = NULL)
 }
 \arguments{
 \item{from}{possible values, "F" for Fahrenheit, "C" degress Celsius and "K" Kelvin.}
