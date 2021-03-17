@@ -256,7 +256,7 @@ getTrend <- function(Tmin, t2, n, plot=FALSE)
 
 buildMdz <- function(dw,tempMax,tmin)
 {
-  k = vector(mode = "logical", length = length(dw))
+  k = vector(mode = "numeric", length = length(dw))
 
   if(checkTemp(dw) && checkTemp(tempMax) && checkTemp(tmin)
      && checkLenght(dw,tmin) && checkLenght(tempMax,tmin))
