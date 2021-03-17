@@ -1,7 +1,7 @@
 Package: frost
 Type: Package
 Title: Prediction of Minimum Temperature for Frost Forecasting in Agriculture
-Version: 0.0.5
+Version: 0.0.7
 Authors@R: c(person(given = "Ana Laura",
              family = "Diedrichs",
              role = c("cre", "aut"),
