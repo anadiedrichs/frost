@@ -71,6 +71,12 @@ calcDewPoint.B <- function(RH,temp) {
 #' calcDewPoint(rh,temp,mode="C")
 #'
 calcDewPoint.C <- function(RH,temp){
+
+  # if RH is zero, replace by 0.01, because log(0/100) is infinite
+  if(length(which(RH == 0 ) > 0 )){
+    RH[which(RH == 0 )] <- 0.01
+  }
+
   return (243.04*(log(RH/100)+((17.625*temp)/(243.04+temp)))/(17.625-log(RH/100)-((17.625*temp)/(243.04+temp))))
 }
 #' @title Dew point estimation given relative humidity and temperature
